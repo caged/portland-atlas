@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+
+// Largely based on https://github.com/mbostock/us-atlas/blob/master/bin/rasterize
+var fs = require("fs"),
+    d3 = require("d3"),
+    shapefile = require("shapefile"),
+    Canvas = require("canvas");
+
+var file = fs.createWriteStream(process.argv[3]);
+
+var width = 1500
+    height = 1000
+
+var canvas = new Canvas(width, height),
+    context = canvas.getContext("2d");
+
+context.fillStyle = "#660099";
+context.strokeStyle = "#660099";
+context.lineWidth = .7;
+context.lineJoin = "round";
+
+var projection = d3.geo.albers()
+  .scale(253230.2225313045)
+  .translate([ 80109.21710198284, 42422.64065420593 ] )
+
+var path = d3.geo.path()
+    .projection(projection)
+    .context(context)
+    .pointRadius(2.5);
+
+features = []
+shapefile.readStream(process.argv[2], {"ignore-properties": true})
+  .on("feature", function(feature) {
+    features.push(feature)
+    context.beginPath();
+    path(feature);
+    if (feature.geometry && /Point$/.test(feature.geometry.type)) context.fill();
+    else context.stroke();
+  })
+  .on("error", function(error) { throw error; })
+  .on("end", function() { canvas.pngStream().pipe(file) })
