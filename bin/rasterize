@@ -14,7 +14,7 @@ var width = 1500
 var canvas = new Canvas(width, height),
     context = canvas.getContext("2d");
 
-context.fillStyle = "#660099";
+context.fillStyle = "rgba(102, 0, 153, 0.8)";
 context.strokeStyle = "#660099";
 context.lineWidth = .7;
 context.lineJoin = "round";
