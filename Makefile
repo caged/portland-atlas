@@ -13,6 +13,8 @@ gz/%.zip:
 
 shp/bicycle-network.shp: gz/Bicycle_Network_pdx.zip
 shp/bicycle-parking.shp: gz/bicycle_parking_pdx.zip
+shp/bridges.shp: gz/Bridges_pdx.zip
+shp/buildings-footprints.shp: gz/Building_Footprints_pdx.zip
 
 shp/%.shp:
 	rm -rf $(basename $@)
