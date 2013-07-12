@@ -8,3 +8,8 @@ node_modules:
 	npm install
 
 .SECONDARY:
+
+gz/Bicycle_Network_pdx.zip:
+	mkdir -p $(dir $@)
+	curl 'ftp://ftp02.portlandoregon.gov/CivicApps/Bicycle_Network_pdx.zip' -o $@.download
+	mv $@.download $@
