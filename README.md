@@ -1,27 +1,18 @@
-<table>
-  <tr>
-    <td>![bicycle-network](https://f.cloud.github.com/assets/25/791577/4213d894-eb4a-11e2-8ff0-665dfd3ae956.png)</td>
-    <td>![bicycle-parking](https://f.cloud.github.com/assets/25/791578/42142934-eb4a-11e2-809e-d814bb118b96.png)</td>
-    <td>![bridges](https://f.cloud.github.com/assets/25/791579/422aad80-eb4a-11e2-88e8-ac45521012b8.png)</td>
-    <td>![buildings-footprints](https://f.cloud.github.com/assets/25/791580/42308336-eb4a-11e2-9ae3-e5da93699abc.png)</td>
-    <td>![business-associations](https://f.cloud.github.com/assets/25/791581/423c5c9c-eb4a-11e2-8aa0-e87414427561.png)</td>
-  </tr>
-  <tr>
-    <td>![cip-data](https://f.cloud.github.com/assets/25/791582/4246d05a-eb4a-11e2-9e1f-a04c6d406713.png)</td>
-    <td>![city-boundaries](https://f.cloud.github.com/assets/25/791583/4247ff5c-eb4a-11e2-862c-f8870b391f61.png)</td>
-    <td>![counties](https://f.cloud.github.com/assets/25/791586/42510a48-eb4a-11e2-8f59-421cfad7e1bb.png)</td>
-    <td>![contours-5ft](https://f.cloud.github.com/assets/25/791584/425022ea-eb4a-11e2-8df7-0b68a1706b6a.png)</td>
-    <td>![corners](https://f.cloud.github.com/assets/25/791585/4253fa28-eb4a-11e2-9de7-6b1efb2c5b15.png)</td>
-  </tr>
-  <tr>
-    <td>![curb-ramps](https://f.cloud.github.com/assets/25/791587/4257a3bc-eb4a-11e2-8251-6820a7b21c9a.png)</td>
-    <td>![curbs](https://f.cloud.github.com/assets/25/791588/425e8150-eb4a-11e2-9efd-2675162a23fd.png)</td>
-    <td>![development-opportunity-areas](https://f.cloud.github.com/assets/25/791589/425eb7b0-eb4a-11e2-950f-53e920bfe552.png)</td>
-    <td>![freight-districts](https://f.cloud.github.com/assets/25/791590/426aa8f4-eb4a-11e2-9971-1af227de3176.png)</td>
-    <td>![enterprise-ecommerce-zone](https://f.cloud.github.com/assets/25/791591/426a8f68-eb4a-11e2-9614-eb2503111742.png)</td>
-  </tr>
-</table>
-
+![bicycle-network](https://f.cloud.github.com/assets/25/791577/4213d894-eb4a-11e2-8ff0-665dfd3ae956.png)
+![bicycle-parking](https://f.cloud.github.com/assets/25/791578/42142934-eb4a-11e2-809e-d814bb118b96.png)
+![bridges](https://f.cloud.github.com/assets/25/791579/422aad80-eb4a-11e2-88e8-ac45521012b8.png)
+![buildings-footprints](https://f.cloud.github.com/assets/25/791580/42308336-eb4a-11e2-9ae3-e5da93699abc.png)
+![business-associations](https://f.cloud.github.com/assets/25/791581/423c5c9c-eb4a-11e2-8aa0-e87414427561.png)
+![cip-data](https://f.cloud.github.com/assets/25/791582/4246d05a-eb4a-11e2-9e1f-a04c6d406713.png)
+![city-boundaries](https://f.cloud.github.com/assets/25/791583/4247ff5c-eb4a-11e2-862c-f8870b391f61.png)
+![counties](https://f.cloud.github.com/assets/25/791586/42510a48-eb4a-11e2-8f59-421cfad7e1bb.png)
+![contours-5ft](https://f.cloud.github.com/assets/25/791584/425022ea-eb4a-11e2-8df7-0b68a1706b6a.png)
+![corners](https://f.cloud.github.com/assets/25/791585/4253fa28-eb4a-11e2-9de7-6b1efb2c5b15.png)
+![curb-ramps](https://f.cloud.github.com/assets/25/791587/4257a3bc-eb4a-11e2-8251-6820a7b21c9a.png)
+![curbs](https://f.cloud.github.com/assets/25/791588/425e8150-eb4a-11e2-9efd-2675162a23fd.png)
+![development-opportunity-areas](https://f.cloud.github.com/assets/25/791589/425eb7b0-eb4a-11e2-950f-53e920bfe552.png)
+![freight-districts](https://f.cloud.github.com/assets/25/791590/426aa8f4-eb4a-11e2-9971-1af227de3176.png)
+![enterprise-ecommerce-zone](https://f.cloud.github.com/assets/25/791591/426a8f68-eb4a-11e2-9614-eb2503111742.png)
 ![freight-facilities](https://f.cloud.github.com/assets/25/791592/426e7bb4-eb4a-11e2-9144-c517fb5fbc5b.png)
 ![guardrail](https://f.cloud.github.com/assets/25/791593/426effd0-eb4a-11e2-9962-a9c722e91060.png)
 ![heritage-trees](https://f.cloud.github.com/assets/25/791594/4278ce2a-eb4a-11e2-96c7-69ce5fc85e09.png)
