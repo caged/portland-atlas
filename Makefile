@@ -1,15 +1,11 @@
 TOPOJSON = node --max_old_space_size=8192 node_modules/.bin/topojson
 
-all: \
-	node_modules \
-	gz/Bicycle_Network_pdx.zip
 
 node_modules:
 	npm install
 
 .SECONDARY:
 
-gz/Bicycle_Network_pdx.zip:
 gz/%.zip:
 	mkdir -p $(dir $@)
 	curl 'ftp://ftp02.portlandoregon.gov/CivicApps/$(notdir $@)' -o $@.download
@@ -27,3 +23,8 @@ shp/%.shp:
 		chmod 644 $(basename $@).$${file##*.}; \
 	done
 	rm -rf $(basename $@)
+
+png/%.png: shp/%.shp bin/rasterize
+	mkdir -p $(dir $@)
+	node --max_old_space_size=8192 bin/rasterize $< $@
+	optipng $@
