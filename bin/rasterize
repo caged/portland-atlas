@@ -8,15 +8,15 @@ var fs = require("fs"),
 
 var file = fs.createWriteStream(process.argv[3]);
 
-var width = 1500
-    height = 1000
+var width = 1000
+    height = 500
 
 var canvas = new Canvas(width, height),
     context = canvas.getContext("2d");
 
 context.fillStyle = "rgba(102, 0, 153, 0.8)";
 context.strokeStyle = "#660099";
-context.lineWidth = .7;
+context.lineWidth = 1;
 context.lineJoin = "round";
 
 var projection = d3.geo.albers()
@@ -26,7 +26,7 @@ var projection = d3.geo.albers()
 var path = d3.geo.path()
     .projection(projection)
     .context(context)
-    .pointRadius(2.5);
+    .pointRadius(4);
 
 features = []
 shapefile.readStream(process.argv[2], {"ignore-properties": true})
