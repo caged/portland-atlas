@@ -18,16 +18,25 @@
 require 'csv'
 require 'pathname'
 
-in_csv = CSV.parse(ARGF.read, :headers => true)
-Pathname.glob('static/*.csv').each do |file|
-  out_csv = CSV.parse(file.read, :headers => true)
+combined_rows = []
 
+in_csv = CSV.parse(ARGF.read, :headers => true)
+Pathname.glob('static/neighborhood*.csv').each_with_index do |file, index|
+  out_csv = CSV.parse(file.read, :headers => true)
   rows = []
+
   out_csv.each do |out_row|
     matched_row = in_csv.detect {|r| out_row['NEIGHBORHOOD'] == r['NAME'] }
     if matched_row
       new_row = {:id => matched_row['OBJECTID']}.merge(out_row.to_hash)
       new_row.delete('NAME')
+
+      if index > 0 && old_hash = combined_rows.detect { |r| r[:id] == new_row[:id] }
+        old_hash.merge!(new_row)
+      else
+        combined_rows.push(new_row)
+      end
+
       rows << new_row
     end
   end
@@ -38,5 +47,13 @@ Pathname.glob('static/*.csv').each do |file|
     rows.each do |r|
       f << r.values
     end
+  end
+end
+
+headers = combined_rows[0].keys.map(&:downcase)
+CSV.open("static/reconciled-neighborhood-demographics-combined.csv", 'w',
+  :headers => headers, :write_headers => true) do |f|
+  combined_rows.each do |r|
+    f << r.values
   end
 end
