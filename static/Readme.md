@@ -1,31 +1,21 @@
-<table border=0 cellpadding=0 cellspacing=0 width=660 style='border-collapse:
- collapse;table-layout:fixed;width:660pt'>
- <col class=xl67 width=65 style='width:65pt'>
- <col class=xl67 width=66 span=2 style='mso-width-source:userset;mso-width-alt:
- 2816;width:66pt'>
- <col class=xl67 width=196 style='mso-width-source:userset;mso-width-alt:8362;
- width:196pt'>
- <col class=xl67 width=151 style='mso-width-source:userset;mso-width-alt:6442;
- width:151pt'>
- <col class=xl67 width=116 style='mso-width-source:userset;mso-width-alt:4949;
- width:116pt'>
- <tr height=15 style='height:15.0pt'>
-  <td height=15 class=xl65 width=65 style='height:15.0pt;width:65pt'>Property</td>
-  <td class=xl66 width=66 style='width:66pt'>Definition</td>
-  <td class=xl67 width=66 style='width:66pt'>Column3</td>
-  <td class=xl67 width=196 style='width:196pt'>Column4</td>
-  <td class=xl67 width=151 style='width:151pt'>Column5</td>
-  <td class=xl68 width=116 style='width:116pt'>Column6</td>
+<table>
+ <tr>
+  <td>Property</td>
+  <td>Definition</td>
+  <td>Column3</td>
+  <td>Column4</td>
+  <td>Column5</td>
+  <td>Column6</td>
  </tr>
- <tr height=15 style='height:15.0pt'>
+ <tr>
   <td height=15 class=xl65 style='height:15.0pt'>P0010001</td>
   <td class=xl66 width=66 style='width:66pt'>Total</td>
   <td class=xl67></td>
   <td class=xl67></td>
   <td class=xl67></td>
-  <td class=xl68 style='border-top:none'>Total Population</td>
+  <td>Total Population</td>
  </tr>
- <tr height=30 style='height:30.0pt'>
+ <tr>
   <td height=30 class=xl65 style='height:30.0pt'>P0050003</td>
   <td class=xl66 width=66 style='width:66pt'>White alone</td>
   <td class=xl67></td>
@@ -33,7 +23,7 @@
   <td class=xl68 colspan=2 style='mso-ignore:colspan'>Hispanic or latino origin
   by race</td>
  </tr>
- <tr height=60 style='height:60.0pt'>
+ <tr>
   <td height=60 class=xl65 style='height:60.0pt'>P0050004</td>
   <td class=xl66 width=66 style='width:66pt'>Black or African American alone</td>
   <td class=xl67></td>
@@ -41,7 +31,7 @@
   <td class=xl69 style='border-top:none'>&nbsp;</td>
   <td class=xl69 style='border-top:none'>&nbsp;</td>
  </tr>
- <tr height=75 style='height:75.0pt'>
+ <tr>
   <td height=75 class=xl65 style='height:75.0pt'>P0050005</td>
   <td class=xl66 width=66 style='width:66pt'>American Indian and Alaska Native
   alone</td>
@@ -50,7 +40,7 @@
   <td class=xl69 style='border-top:none'>&nbsp;</td>
   <td class=xl69 style='border-top:none'>&nbsp;</td>
  </tr>
- <tr height=15 style='height:15.0pt'>
+ <tr>
   <td height=15 class=xl65 style='height:15.0pt'>P0050006</td>
   <td class=xl66 width=66 style='width:66pt'>Asian alone</td>
   <td class=xl67></td>
@@ -58,7 +48,7 @@
   <td class=xl69 style='border-top:none'>&nbsp;</td>
   <td class=xl69 style='border-top:none'>&nbsp;</td>
  </tr>
- <tr height=90 style='height:90.0pt'>
+ <tr>
   <td height=90 class=xl65 style='height:90.0pt'>P0050007</td>
   <td class=xl66 width=66 style='width:66pt'>Native Hawaiian and Other Pacific
   Islander alone</td>
@@ -67,7 +57,7 @@
   <td class=xl69 style='border-top:none'>&nbsp;</td>
   <td class=xl69 style='border-top:none'>&nbsp;</td>
  </tr>
- <tr height=45 style='height:45.0pt'>
+ <tr>
   <td height=45 class=xl65 style='height:45.0pt'>P0050008</td>
   <td class=xl66 width=66 style='width:66pt'>Some Other Race alone</td>
   <td class=xl67></td>
@@ -75,7 +65,7 @@
   <td class=xl69 style='border-top:none'>&nbsp;</td>
   <td class=xl69 style='border-top:none'>&nbsp;</td>
  </tr>
- <tr height=30 style='height:30.0pt'>
+ <tr>
   <td height=30 class=xl65 style='height:30.0pt'>P0050009</td>
   <td class=xl66 width=66 style='width:66pt'>Two or More Races</td>
   <td class=xl67></td>
@@ -83,7 +73,7 @@
   <td class=xl69 style='border-top:none'>&nbsp;</td>
   <td class=xl69 style='border-top:none'>&nbsp;</td>
  </tr>
- <tr height=30 style='height:30.0pt'>
+ <tr>
   <td height=30 class=xl65 style='height:30.0pt'>P0050011</td>
   <td class=xl66 width=66 style='width:66pt'>White alone</td>
   <td class=xl67></td>
@@ -91,7 +81,7 @@
   <td class=xl69 style='border-top:none'>&nbsp;</td>
   <td class=xl69 style='border-top:none'>&nbsp;</td>
  </tr>
- <tr height=60 style='height:60.0pt'>
+ <tr>
   <td height=60 class=xl65 style='height:60.0pt'>P0050012</td>
   <td class=xl66 width=66 style='width:66pt'>Black or African American alone</td>
   <td class=xl67></td>
@@ -99,7 +89,7 @@
   <td class=xl69 style='border-top:none'>&nbsp;</td>
   <td class=xl69 style='border-top:none'>&nbsp;</td>
  </tr>
- <tr height=75 style='height:75.0pt'>
+ <tr>
   <td height=75 class=xl65 style='height:75.0pt'>P0050013</td>
   <td class=xl66 width=66 style='width:66pt'>American Indian and Alaska Native
   alone</td>
@@ -108,7 +98,7 @@
   <td class=xl69 style='border-top:none'>&nbsp;</td>
   <td class=xl69 style='border-top:none'>&nbsp;</td>
  </tr>
- <tr height=15 style='height:15.0pt'>
+ <tr>
   <td height=15 class=xl65 style='height:15.0pt'>P0050014</td>
   <td class=xl66 width=66 style='width:66pt'>Asian alone</td>
   <td class=xl67></td>
@@ -116,7 +106,7 @@
   <td class=xl69 style='border-top:none'>&nbsp;</td>
   <td class=xl69 style='border-top:none'>&nbsp;</td>
  </tr>
- <tr height=90 style='height:90.0pt'>
+ <tr>
   <td height=90 class=xl65 style='height:90.0pt'>P0050015</td>
   <td class=xl66 width=66 style='width:66pt'>Native Hawaiian and Other Pacific
   Islander alone</td>
