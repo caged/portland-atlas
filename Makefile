@@ -92,6 +92,13 @@ topo/neighborhoods.json: shp/neighborhoods.shp
 	mkdir -p $(dir $@)
 	$(TOPOJSON) -p name=NAME,shared=SHARED,len=+SHAPE_LEN,area=+SHAPE_AREA -q 1e3 -s 0.0000000001 --id-property=+OBJECTID -- $< > $@
 
+topo/neighborhoods-demographics.json: shp/neighborhoods.shp
+	mkdir -p $(dir $@)
+	$(TOPOJSON) -p $(DEMOGRAPHIC_PROPERTIES_2000),$(DEMOGRAPHIC_PROPERTIES_2010) \
+		-q 1e3 -s 0.0000000001 \
+		--external-properties static/reconciled-neighborhood-demographics-combined.csv \
+		--id-property=OBJECTID,+id -- $< > $@
+
 
 topo/neighborhoods-demographics-2000.json: shp/neighborhoods.shp
 	mkdir -p $(dir $@)
