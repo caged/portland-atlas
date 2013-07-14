@@ -26,7 +26,7 @@ Pathname.glob('static/*.csv').each do |file|
   out_csv.each do |out_row|
     matched_row = in_csv.detect {|r| out_row['NEIGHBORHOOD'] == r['NAME'] }
     if matched_row
-      new_row = matched_row.to_hash.merge(out_row.to_hash)
+      new_row = {:id => matched_row['OBJECTID']}.merge(out_row.to_hash)
       new_row.delete('NAME')
       rows << new_row
     end
