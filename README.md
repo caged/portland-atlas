@@ -1,3 +1,7 @@
+## Portland Atlas
+
+Demographic data field definitions can be found here: http://www.portlandoregon.gov/oni/28387
+
 <table>
 <tr height="160">
 <td><a href="https://f.cloud.github.com/assets/25/791577/4213d894-eb4a-11e2-8ff0-665dfd3ae956.png" target="_blank"><img src="https://f.cloud.github.com/assets/25/791577/4213d894-eb4a-11e2-8ff0-665dfd3ae956.png" alt="bicycle-network" style="max-width:100%;"></a></td>
