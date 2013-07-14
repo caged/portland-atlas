@@ -1,11 +1,11 @@
 <table>
  <tr>
-  <td>Property</td>
-  <td>Definition</td>
-  <td>Column3</td>
-  <td>Column4</td>
-  <td>Column5</td>
-  <td>Column6</td>
+  <th>Property</th>
+  <th>Definition</th>
+  <th>Column3</th>
+  <th>Column4</th>
+  <th>Column5</th>
+  <th>Column6</th>
  </tr>
  <tr>
   <td height=15 class=xl65 style='height:15.0pt'>P0010001</td>
