@@ -1,0 +1,59 @@
+#!/usr/bin/env ruby
+# encoding: UTF-8
+
+# Usage: ogr2ogr -f 'CSV' /dev/stdout shp/neighborhoods.shp | ./bin/reconcile-demographics
+#
+# Reconcile neighborhood geography from the city with demographic data from
+# PSU Population Research Center.
+
+# Notes from original Excel files:
+#
+# Source:  Census block data from U.S. Census Bureau, 2010 Census, Summary File 1,
+# aggregated by PSU Population Research Center to approximate non-overlapping parts
+# of City of Portland Neighborhood Association boundaries.  Boundaries were provided by the Ci
+# Note:  Fields with 8 character field names are directly from Census Bureau tables.
+# Fields with 10 character field names were combined by PRC from more detailed
+# fields in Census Bureau tables.
+#
+require 'csv'
+require 'pathname'
+
+combined_rows = []
+
+in_csv = CSV.parse(ARGF.read, :headers => true)
+Pathname.glob('static/neighborhood*.csv').each_with_index do |file, index|
+  out_csv = CSV.parse(file.read, :headers => true)
+  rows = []
+
+  out_csv.each do |out_row|
+    matched_row = in_csv.detect {|r| out_row['NEIGHBORHOOD'] == r['NAME'] }
+    if matched_row
+      new_row = {:id => matched_row['OBJECTID']}.merge(out_row.to_hash)
+      new_row.delete('NAME')
+
+      if index > 0 && old_hash = combined_rows.detect { |r| r[:id] == new_row[:id] }
+        old_hash.merge!(new_row)
+      else
+        combined_rows.push(new_row)
+      end
+
+      rows << new_row
+    end
+  end
+
+  headers = rows[0].keys.map(&:downcase)
+  CSV.open("static/reconciled-#{file.basename}", 'w',
+    :headers => headers, :write_headers => true) do |f|
+    rows.each do |r|
+      f << r.values
+    end
+  end
+end
+
+headers = combined_rows[0].keys.map(&:downcase)
+CSV.open("static/reconciled-neighborhood-demographics-combined.csv", 'w',
+  :headers => headers, :write_headers => true) do |f|
+  combined_rows.each do |r|
+    f << r.values
+  end
+end
