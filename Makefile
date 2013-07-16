@@ -14,6 +14,11 @@ gz/%.zip:
 	curl 'ftp://ftp02.portlandoregon.gov/CivicApps/$(notdir $@)' -o $@.download
 	mv $@.download $@
 
+gz/historic/Trolley_All.zip:
+	mkdir -p $(dir $@)
+	curl 'http://www.upa.pdx.edu/IMS/currentprojects/TAHv3/GIS_Data/Portlands_People/$(notdir $@)' -o $@.download
+	mv $@.download $@
+
 shp/bicycle-network.shp: gz/Bicycle_Network_pdx.zip
 shp/bicycle-parking.shp: gz/bicycle_parking_pdx.zip
 shp/bridges.shp: gz/Bridges_pdx.zip
@@ -25,7 +30,6 @@ shp/counties.shp: gz/Counties_pdx.zip
 shp/curbs.shp: gz/Curbs_pdx.zip
 shp/curb-ramps.shp: gz/Curb_Ramps_pdx.zip
 shp/development-opportunity-areas.shp: gz/Development_Opportunity_Areas_pdx.zip
-
 shp/contours-5ft.shp: gz/Contours_5ft_pdx.zip
 shp/enterprise-ecommerce-zone.shp: gz/Enterprise_ECommerce_Zone_pdx.zip
 shp/freight-districts.shp: gz/Freight_Districts_pdx.zip
@@ -75,8 +79,25 @@ shp/wellhead-prot-areas.shp: gz/Wellhead_Prot_Areas_pdx.zip
 shp/zipcodes.shp: gz/Zipcodes_pdx.zip
 shp/zoning-data.shp: gz/Zoning_Data_pdx.zip
 shp/city-boundaries.shp: gz/Cities_pdx.zip
-shp/buildings-footprints.shp: gz/Building_Footprints_pdx.zip
+shp/building-footprints.shp: gz/Building_Footprints_pdx.zip
 
+# FIXME: FUCKING PROJECTIONS
+# Historic datasets from pdx.edu
+shp/trolleys.shp: gz/historic/Trolley_All.zip
+	rm -rf $(basename $@)
+	mkdir -p $(basename $@)
+	tar -xzm -C $(basename $@) -f $<
+
+	find $(basename $@) -name 'Alberta*' -exec mv '{}' $(dir $@) \;
+
+	for file in shp/trolleys/*.shp; do \
+		ogr2ogr -f 'ESRI Shapefile' -update -append $(dir $@)Alberta.shp $$file; \
+	done
+
+	ogr2ogr -f 'ESRI Shapefile' -t_srs EPSG:4326 $@ $(dir $@)Alberta.shp
+
+	rm -rf $(basename $@)
+	rm $(dir $@)Alberta.*
 
 shp/%.shp:
 	rm -rf $(basename $@)
@@ -98,7 +119,6 @@ topo/neighborhoods-demographics.json: shp/neighborhoods.shp
 		-q 1e3 -s 0.0000000001 \
 		--external-properties static/reconciled-neighborhood-demographics-combined.csv \
 		--id-property=OBJECTID,+id -- $< > $@
-
 
 topo/neighborhoods-demographics-2000.json: shp/neighborhoods.shp
 	mkdir -p $(dir $@)
