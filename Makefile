@@ -81,8 +81,9 @@ shp/zoning-data.shp: gz/Zoning_Data_pdx.zip
 shp/city-boundaries.shp: gz/Cities_pdx.zip
 shp/building-footprints.shp: gz/Building_Footprints_pdx.zip
 
-# FIXME: FUCKING PROJECTIONS
-# Historic datasets from pdx.edu
+# Historic trolley datasets from pdx.edu
+#
+# Combine all, individual lines into a single shapefile.
 shp/trolleys.shp: gz/historic/Trolley_All.zip
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
@@ -133,6 +134,10 @@ topo/neighborhoods-demographics-2010.json: shp/neighborhoods.shp
 		-q 1e3 -s 0.0000000001 \
 		--external-properties static/reconciled-neighborhood-demographics-2010.csv \
 		--id-property=OBJECTID,+id -- $< > $@
+
+topo/trolleys.json: shp/trolleys.shp
+	mkdir -p $(dir $@)
+	$(TOPOJSON) -q 1e3 -s 9e-9 -p street=STREET,year=+Year_,notes=Notes -- $< > $@
 
 png/%.png: shp/%.shp bin/rasterize
 	mkdir -p $(dir $@)
