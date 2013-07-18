@@ -11,12 +11,12 @@ node_modules:
 
 gz/%.zip:
 	mkdir -p $(dir $@)
-	curl 'ftp://ftp02.portlandoregon.gov/CivicApps/$(notdir $@)' -o $@.download
+	curl --remote-time 'ftp://ftp02.portlandoregon.gov/CivicApps/$(notdir $@)' -o $@.download
 	mv $@.download $@
 
 gz/historic/Trolley_All.zip:
 	mkdir -p $(dir $@)
-	curl 'http://www.upa.pdx.edu/IMS/currentprojects/TAHv3/GIS_Data/Portlands_People/$(notdir $@)' -o $@.download
+	curl --remote-time 'http://www.upa.pdx.edu/IMS/currentprojects/TAHv3/GIS_Data/Portlands_People/$(notdir $@)' -o $@.download
 	mv $@.download $@
 
 shp/bicycle-network.shp: gz/Bicycle_Network_pdx.zip
