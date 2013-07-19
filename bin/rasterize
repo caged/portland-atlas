@@ -4,32 +4,67 @@
 var fs = require("fs"),
     d3 = require("d3"),
     shapefile = require("shapefile"),
-    Canvas = require("canvas");
+    Canvas = require("canvas"),
+    topojson = require('topojson'),
+    util     = require('util')
 
+console.log('Generating file for ' + process.argv[2])
 var file = fs.createWriteStream(process.argv[3]);
 
-var width = 1000
-    height = 500
+var width = 250
+    height = 250
 
 var canvas = new Canvas(width, height),
-    context = canvas.getContext("2d");
+    context = canvas.getContext('2d');
 
-context.fillStyle = "rgba(102, 0, 153, 0.8)";
-context.strokeStyle = "#660099";
-context.lineWidth = 1;
-context.lineJoin = "round";
+context.fillStyle = '#ff5933'
+context.strokeStyle = '#ff5933'
+context.lineWidth = 0.5
+context.lineJoin = 'round'
+context.antialias = 'subpixel'
 
 var projection = d3.geo.albers()
-  .scale(253230.2225313045)
-  .translate([ 80109.21710198284, 42422.64065420593 ] )
+  .scale(1)
+  .translate([ 0, 0 ])
 
 var path = d3.geo.path()
     .projection(projection)
     .context(context)
-    .pointRadius(4);
+    .pointRadius(0.5);
 
 features = []
 shapefile.readStream(process.argv[2], {"ignore-properties": true})
+  .on('header', function(header) {
+    b = header.box
+    g = {
+       "type": "FeatureCollection",
+       "features": [{
+           "type": "Feature",
+           "geometry": {
+            "bbox": header.box,
+             "type": "Polygon",
+             "properties": header,
+             "coordinates": [[
+                 [ b[0], b[1] ],
+                 [ b[0], b[3] ],
+                 [ b[2], b[3] ],
+                 [ b[2], b[1] ],
+                 [ b[0], b[1] ]
+               ]]
+           }
+         }]
+     }
+
+     delete header.box
+     g.features[0].geometry.properties = header
+
+     projection.scale(1).translate([0, 0])
+     b = path.bounds(g)
+     s = .99 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height)
+     t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2]
+     projection.scale(s).translate(t)
+
+  })
   .on("feature", function(feature) {
     features.push(feature)
     context.beginPath();
