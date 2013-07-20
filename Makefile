@@ -84,14 +84,14 @@ shp/building-footprints.shp: gz/Building_Footprints_pdx.zip
 # Historic trolley datasets from pdx.edu
 #
 # Combine all, individual lines into a single shapefile.
-shp/trolleys.shp: gz/historic/Trolley_All.zip
+shp/historic-trolleys.shp: gz/historic/Trolley_All.zip
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
 	tar -xzm -C $(basename $@) -f $<
 
 	find $(basename $@) -name 'Alberta*' -exec mv '{}' $(dir $@) \;
 
-	for file in shp/trolleys/*.shp; do \
+	for file in shp/historic-trolleys/*.shp; do \
 		ogr2ogr -f 'ESRI Shapefile' -update -append $(dir $@)Alberta.shp $$file; \
 	done
 
@@ -135,7 +135,7 @@ topo/neighborhoods-demographics-2010.json: shp/neighborhoods.shp
 		--external-properties static/reconciled-neighborhood-demographics-2010.csv \
 		--id-property=OBJECTID,+id -- $< > $@
 
-topo/trolleys.json: shp/trolleys.shp
+topo/historic-trolleys.json: shp/historic-trolleys.shp
 	mkdir -p $(dir $@)
 	$(TOPOJSON) -q 1e3 -s 9e-9 -p street=STREET,year=+Year_,notes=Notes -- $< > $@
 
