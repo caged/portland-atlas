@@ -14,9 +14,11 @@ while(i--) {
   if(!(/\.png$/i).test(png))
     continue
 
+  var name = png.replace('.shp.png', '').replace('-', ' ')
+
   if(i % 4 == 0) {
-    process.stdout.write("![](png/" + png + ") \n")
+    process.stdout.write("![](png/" + png + ") **" + name + "**  \n")
   } else {
-    process.stdout.write("![](png/" + png + ") | ")
+    process.stdout.write("![](png/" + png + ") **" + name + "** | ")
   }
 }
