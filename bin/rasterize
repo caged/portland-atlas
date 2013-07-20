@@ -17,8 +17,8 @@ var width = 250
 var canvas = new Canvas(width, height),
     context = canvas.getContext('2d');
 
-context.fillStyle = '#000'
-context.strokeStyle = '#000'
+context.fillStyle = '#777'
+context.strokeStyle = '#777'
 context.lineWidth = 0.5
 context.lineJoin = 'round'
 context.antialias = 'subpixel'
