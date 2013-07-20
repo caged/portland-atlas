@@ -31,7 +31,7 @@ make png/neighborhoods.png
 ![](png/parks-trails.shp.png) **parks trails** | ![](png/parks-taxlots.shp.png) **parks taxlots** | ![](png/parks-easements.shp.png) **parks easements** | ![](png/parking-meters.shp.png) **parking meters**
 ![](png/neighborhoods.shp.png) **neighborhoods** | ![](png/lid-streets.shp.png) **lid streets** | ![](png/lid-boundaries.shp.png) **lid boundaries** | ![](png/leaf-pickup.shp.png) **leaf pickup**
 ![](png/its-sign.shp.png) **its sign** | ![](png/its-camera.shp.png) **its camera** | ![](png/intermodal-facilities.shp.png) **intermodal facilities** | ![](png/homebuyer-opportunity-areas.shp.png) **homebuyer opportunity areas**
-![](png/historic-trolleys.png) **historic trolleys.png** | ![](png/heritage-trees.shp.png) **heritage trees** | ![](png/guardrail.shp.png) **guardrail** | ![](png/freight-facilities.shp.png) **freight facilities**
+![](png/historic-trolleys.png) **historic trolleys** | ![](png/heritage-trees.shp.png) **heritage trees** | ![](png/guardrail.shp.png) **guardrail** | ![](png/freight-facilities.shp.png) **freight facilities**
 ![](png/freight-districts.shp.png) **freight districts** | ![](png/enterprise-ecommerce-zone.shp.png) **enterprise ecommerce zone** | ![](png/development-opportunity-areas.shp.png) **development opportunity areas** | ![](png/curbs.shp.png) **curbs**
 ![](png/curb-ramps.shp.png) **curb ramps** | ![](png/counties.shp.png) **counties** | ![](png/corners.shp.png) **corners** | ![](png/contours-5ft.shp.png) **contours 5ft**
 ![](png/city-boundaries.shp.png) **city boundaries** | ![](png/cip-data.shp.png) **cip data** | ![](png/business-associations.shp.png) **business associations** | ![](png/building-footprints.shp.png) **building footprints**
