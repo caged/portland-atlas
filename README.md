@@ -1,6 +1,23 @@
 ## Portland Atlas
 
-Demographic data field definitions can be found here: http://www.portlandoregon.gov/oni/28387
+* Easily download and convert public data for Portland, Oregon.
+* Generate [TopoJSON](https://github.com/mbostock/topojson) for Portland Neigborhoods, combined with [demographic data](http://www.portlandoregon.gov/oni/28387).
+* Generate png images from shapefiles
+
+### Install
+
+```
+npm install portland-atlas
+```
+
+### Examples
+
+```
+make shp/neighborhoods.shp
+make topo/neighborhoods.json
+make topo/neighborhoods-demographics.json
+make png/neighborhoods.png
+```
 
 ... | ... | ... |...
 :---: | :---: | :---: | :---:
