@@ -17,8 +17,8 @@ var width = 250
 var canvas = new Canvas(width, height),
     context = canvas.getContext('2d');
 
-context.fillStyle = '#ff5933'
-context.strokeStyle = '#ff5933'
+context.fillStyle = '#777'
+context.strokeStyle = '#777'
 context.lineWidth = 0.5
 context.lineJoin = 'round'
 context.antialias = 'subpixel'
@@ -30,7 +30,7 @@ var projection = d3.geo.albers()
 var path = d3.geo.path()
     .projection(projection)
     .context(context)
-    .pointRadius(0.5);
+    .pointRadius(1);
 
 features = []
 shapefile.readStream(process.argv[2], {"ignore-properties": true})
