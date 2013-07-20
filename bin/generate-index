@@ -5,7 +5,7 @@ var fs = require('fs')
 var pngs = fs.readdirSync('png'),
     i = pngs.length
 
-process.stdout.write("... | ... | ... | ... \n")
+process.stdout.write(":...:|:...:|:...:|:...: \n")
 process.stdout.write("--- | --- | --- | --- \n")
 
 while(i--) {
@@ -14,7 +14,7 @@ while(i--) {
   if(!(/\.png$/i).test(png))
     continue
 
-  var name = png.replace('.shp.png', '').replace('-', ' ')
+  var name = png.replace('.shp.png', '').replace(/-/g, ' ')
 
   if(i % 4 == 0) {
     process.stdout.write("![](png/" + png + ") **" + name + "**  \n")
