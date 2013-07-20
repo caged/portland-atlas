@@ -142,4 +142,9 @@ topo/trolleys.json: shp/trolleys.shp
 png/%.png: shp/%.shp bin/rasterize
 	mkdir -p $(dir $@)
 	node --max_old_space_size=8192 bin/rasterize $< $@
-	optipng $@
+	pngnq -f -n 256 -s 10 -Q f -e ".png" $@
+
+all-pngs:
+	for file in shp/*.shp; do \
+		basename $${file%.*}; \
+	done
