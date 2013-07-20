@@ -5,8 +5,8 @@ var fs = require('fs')
 var pngs = fs.readdirSync('png'),
     i = pngs.length
 
-process.stdout.write(":...:|:...:|:...:|:...: \n")
-process.stdout.write("--- | --- | --- | --- \n")
+process.stdout.write("... | ... | ... |... \n")
+process.stdout.write(":---: | :---: | :---: | :---: \n")
 
 while(i--) {
   var png = pngs[i]

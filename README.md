@@ -2,8 +2,8 @@
 
 Demographic data field definitions can be found here: http://www.portlandoregon.gov/oni/28387
 
-:...:|:...:|:...:|:...:
---- | --- | --- | ---
+... | ... | ... |...
+:---: | :---: | :---: | :---:
 ![](png/zoning-data.shp.png) **zoning data** | ![](png/zipcodes.shp.png) **zipcodes** | ![](png/wellhead-prot-areas.shp.png) **wellhead prot areas** | ![](png/watersheds.shp.png) **watersheds**
 ![](png/urban-renewal-areas.shp.png) **urban renewal areas** | ![](png/trolleys.shp.png) **trolleys** | ![](png/traffic-signal.shp.png) **traffic signal** | ![](png/traffic-calming.shp.png) **traffic calming**
 ![](png/streets.shp.png) **streets** | ![](png/street-trees.shp.png) **street trees** | ![](png/street-sweeping.shp.png) **street sweeping** | ![](png/street-contract-jobs-multipoint.shp.png) **street contract jobs multipoint**
