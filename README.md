@@ -1,7 +1,7 @@
 ## Portland Atlas
 
 * Easily download and convert public data for Portland, Oregon.
-* Generate [TopoJSON](https://github.com/mbostock/topojson) for Portland Neigborhoods, combined with [demographic data](http://www.portlandoregon.gov/oni/28387).
+* Generate [TopoJSON](https://github.com/mbostock/topojson) for Portland Neigborhoods, combined with 2000 and 2010 [demographic data](http://www.portlandoregon.gov/oni/28387).
 * Generate png images from shapefiles
 
 ### Install
