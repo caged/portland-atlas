@@ -2,7 +2,7 @@
 
 var fs = require('fs')
 
-var pngs = fs.readdirSync('png'),
+var pngs = fs.readdirSync('png').reverse(),
     i = pngs.length
 
 process.stdout.write("... | ... | ... |... \n")
