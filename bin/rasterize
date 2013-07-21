@@ -23,7 +23,7 @@ context.lineWidth = 0.5
 context.lineJoin = 'round'
 context.antialias = 'subpixel'
 
-var projection = d3.geo.albers()
+var projection = d3.geo.albers().rotate([120])
   .scale(1)
   .translate([ 0, 0 ])
 
