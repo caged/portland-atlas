@@ -9,16 +9,23 @@ node_modules:
 
 .SECONDARY:
 
-gz/%.zip:
-	mkdir -p $(dir $@)
-	curl --remote-time 'ftp://ftp02.portlandoregon.gov/CivicApps/$(notdir $@)' -o $@.download
-	mv $@.download $@
-
 gz/historic/Trolley_All.zip:
 	mkdir -p $(dir $@)
 	curl --remote-time 'http://www.upa.pdx.edu/IMS/currentprojects/TAHv3/GIS_Data/Portlands_People/$(notdir $@)' -o $@.download
 	mv $@.download $@
 
+gz/metro/%.zip:
+	mkdir -p $(dir $@)
+	curl -L --remote-time 'http://library.oregonmetro.gov/rlisdiscovery/$(notdir $@)' -o $@.download
+	mv $@.download $@
+
+gz/%.zip:
+	mkdir -p $(dir $@)
+	curl --remote-time 'ftp://ftp02.portlandoregon.gov/CivicApps/$(notdir $@)' -o $@.download
+	mv $@.download $@
+
+# City of Portland, Bureau of Planning and Sustainability datasets
+#
 shp/bicycle-network.shp: gz/Bicycle_Network_pdx.zip
 shp/bicycle-parking.shp: gz/bicycle_parking_pdx.zip
 shp/bridges.shp: gz/Bridges_pdx.zip
@@ -80,6 +87,13 @@ shp/zipcodes.shp: gz/Zipcodes_pdx.zip
 shp/zoning-data.shp: gz/Zoning_Data_pdx.zip
 shp/city-boundaries.shp: gz/Cities_pdx.zip
 shp/building-footprints.shp: gz/Building_Footprints_pdx.zip
+
+# Oregon Metro Datasets
+#
+shp/blockgroup-1990.shp: gz/metro/blockgrp1990.zip
+shp/blockgroup-2000.shp: gz/metro/blockgrp2000.zip
+shp/blockgroup-2010.shp: gz/metro/blockgrp2010.zip
+
 
 # Historic trolley datasets from pdx.edu
 #
