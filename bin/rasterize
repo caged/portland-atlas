@@ -32,7 +32,6 @@ var path = d3.geo.path()
     .context(context)
     .pointRadius(1);
 
-features = []
 shapefile.readStream(process.argv[2], {"ignore-properties": true})
   .on('header', function(header) {
      projection.scale(1).translate([0, 0])
@@ -43,7 +42,6 @@ shapefile.readStream(process.argv[2], {"ignore-properties": true})
 
   })
   .on("feature", function(feature) {
-    features.push(feature)
     context.beginPath();
     path(feature);
     if (feature.geometry && /Point$/.test(feature.geometry.type)) context.fill();
