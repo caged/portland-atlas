@@ -133,6 +133,17 @@ shp/%.shp:
 	done
 	rm -rf $(basename $@)
 
+csv/crime_incident_data_%/crime_incident_data.csv: gz/%.zip
+	rm -rf $(basename $@)
+	mkdir -p $(basename $@)
+	tar -xzm -C $(basename $@) -f $<
+	# echo $(basename $@)
+	# mv $(basename $@)/*.csv $(dir $@)
+	#mv $(basename $@)/$(basename $<)
+
+topo/crime_incident_data_%.json: csv/crime_incident_data_%/crime_incident_data.csv
+	$(TOPOJSON) -x "X Coordinate" -y "Y Coordinate" -- $< > $@
+
 topo/neighborhoods.json: shp/neighborhoods.shp
 	mkdir -p $(dir $@)
 	$(TOPOJSON) -p name=NAME,shared=SHARED,len=+SHAPE_LEN,area=+SHAPE_AREA -q 1e3 -s 0.0000000001 --id-property=+OBJECTID -- $< > $@
