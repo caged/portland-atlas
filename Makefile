@@ -19,6 +19,11 @@ gz/metro/%.zip:
 	curl -L --remote-time 'http://library.oregonmetro.gov/rlisdiscovery/$(notdir $@)' -o $@.download
 	mv $@.download $@
 
+gz/osm/%.zip:
+	mkdir -p $(dir $@)
+	curl --remote-time 'http://osm-extracted-metros.s3.amazonaws.com/$(notdir $@)' -o $@.download
+	mv $@.download $@
+
 gz/%.zip:
 	mkdir -p $(dir $@)
 	curl --remote-time 'ftp://ftp02.portlandoregon.gov/CivicApps/$(notdir $@)' -o $@.download
@@ -94,6 +99,10 @@ shp/blockgroup-1990.shp: gz/metro/blockgrp1990.zip
 shp/blockgroup-2000.shp: gz/metro/blockgrp2000.zip
 shp/blockgroup-2010.shp: gz/metro/blockgrp2010.zip
 
+# Open Streetmap Datasets
+shp/osm-line.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
+shp/osm-point.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
+shp/osm-polygon.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
 
 # Historic trolley datasets from pdx.edu
 #
