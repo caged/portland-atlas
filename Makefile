@@ -30,7 +30,6 @@ gz/%.zip:
 	mv $@.download $@
 
 # City of Portland, Bureau of Planning and Sustainability datasets
-#
 shp/bicycle-network.shp: gz/Bicycle_Network_pdx.zip
 shp/bicycle-parking.shp: gz/bicycle_parking_pdx.zip
 shp/bridges.shp: gz/Bridges_pdx.zip
@@ -94,10 +93,11 @@ shp/city-boundaries.shp: gz/Cities_pdx.zip
 shp/building-footprints.shp: gz/Building_Footprints_pdx.zip
 
 # Oregon Metro Datasets
-#
 shp/blockgroup-1990.shp: gz/metro/blockgrp1990.zip
 shp/blockgroup-2000.shp: gz/metro/blockgrp2000.zip
 shp/blockgroup-2010.shp: gz/metro/blockgrp2010.zip
+shp/ugb.shp: gz/metro/ugb.zip
+shp/water.shp: gz/metro/mjriv_fi.zip
 
 # Open Streetmap Datasets
 shp/osm-line.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
