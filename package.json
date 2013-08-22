@@ -1,6 +1,7 @@
 {
   "name": "portlnd-atlas",
   "version": "0.0.1",
+  "license": "MIT",
   "description": "Generate topojson from a variety of Portland, Oregon geographic data",
   "keywords": [
     "portland",
@@ -20,7 +21,7 @@
   "devDependencies": {
     "canvas": "1",
     "d3": "3",
-    "shapefile": "0.1",
+    "shapefile": "git+https://github.com/Caged/shapefile.git#header-event",
     "topojson": "1"
   }
 }
