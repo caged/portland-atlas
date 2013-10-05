@@ -97,6 +97,7 @@ shp/blockgroup-1990.shp: gz/metro/blockgrp1990.zip
 shp/blockgroup-2000.shp: gz/metro/blockgrp2000.zip
 shp/blockgroup-2010.shp: gz/metro/blockgrp2010.zip
 shp/urban-growth-boundary.shp: gz/metro/ugb.zip
+shp/urban-growth-boundary-history.shp: gz/metro/ugb_history.zip
 shp/water.shp: gz/metro/mjriv_fi.zip
 
 # Open Streetmap Datasets
