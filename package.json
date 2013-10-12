@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/mbostock/us-atlas.git"
+    "url": "http://github.com/caged/portland-atlas.git"
   },
   "devDependencies": {
     "canvas": "1",
