@@ -116,10 +116,10 @@ shp/historic-trolleys.shp: gz/historic/Trolley_All.zip
 	find $(basename $@) -name 'Alberta*' -exec mv '{}' $(dir $@) \;
 
 	for file in shp/historic-trolleys/*.shp; do \
-		ogr2ogr -f 'ESRI Shapefile' -update -append $(dir $@)Alberta.shp $$file; \
+		ogr2ogr -dim 2 -f 'ESRI Shapefile' -update -append $(dir $@)Alberta.shp $$file; \
 	done
 
-	ogr2ogr -f 'ESRI Shapefile' -t_srs EPSG:4326 $@ $(dir $@)Alberta.shp
+	ogr2ogr -dim 2 -f 'ESRI Shapefile' -t_srs EPSG:4326 $@ $(dir $@)Alberta.shp
 
 	rm -rf $(basename $@)
 	rm $(dir $@)Alberta.*
@@ -129,7 +129,7 @@ shp/%.shp:
 	mkdir -p $(basename $@)
 	tar -xzm -C $(basename $@) -f $<
 	for file in $(basename $@)/*.shp; do \
-		ogr2ogr -f 'ESRI Shapefile' -t_srs EPSG:4326 $(basename $@).$${file##*.} $$file; \
+		ogr2ogr -dim 2 -f 'ESRI Shapefile' -t_srs EPSG:4326 $(basename $@).$${file##*.} $$file; \
 		chmod 644 $(basename $@).$${file##*.}; \
 	done
 	rm -rf $(basename $@)
