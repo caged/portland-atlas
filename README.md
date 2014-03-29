@@ -40,3 +40,6 @@ make png/neighborhoods.png
 ![](png/trimet-rail-stops.png) **trimet rail stops** | ![](png/trimet-route-stops.png) **trimet route stops** | ![](png/trimet-routes.png) **trimet routes** | ![](png/trimet-stops.png) **trimet stops**  
 ![](png/trimet-transit-centers.png) **trimet transit centers** | ![](png/urban-growth-boundary.png) **urban growth boundary** | ![](png/urban-renewal-areas.shp.png) **urban renewal areas** | ![](png/water.png) **water**  
 ![](png/watersheds.shp.png) **watersheds** | ![](png/wellhead-prot-areas.shp.png) **wellhead prot areas** | ![](png/zipcodes.shp.png) **zipcodes** | ![](png/zoning-data.shp.png) **zoning data**  
+
+
+See [world-atlas](https://github.com/mbostock/world-atlas) for the inspration for this project.
