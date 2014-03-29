@@ -1,8 +1,12 @@
 ## Portland Atlas
 
-* Easily download and convert public data for Portland, Oregon.
+* Easily download and convert public GIS (shapefile) data for Portland, Oregon.
 * Generate [TopoJSON](https://github.com/mbostock/topojson) for Portland Neigborhoods, combined with 2000 and 2010 [demographic data](http://www.portlandoregon.gov/oni/28387).
 * Generate png images from shapefiles
+
+
+This project was inspired by [world-atlas](https://github.com/mbostock/world-atlas).
+
 
 ### Install
 
@@ -40,6 +44,3 @@ make png/neighborhoods.png
 ![](png/trimet-rail-stops.png) **trimet rail stops** | ![](png/trimet-route-stops.png) **trimet route stops** | ![](png/trimet-routes.png) **trimet routes** | ![](png/trimet-stops.png) **trimet stops**  
 ![](png/trimet-transit-centers.png) **trimet transit centers** | ![](png/urban-growth-boundary.png) **urban growth boundary** | ![](png/urban-renewal-areas.shp.png) **urban renewal areas** | ![](png/water.png) **water**  
 ![](png/watersheds.shp.png) **watersheds** | ![](png/wellhead-prot-areas.shp.png) **wellhead prot areas** | ![](png/zipcodes.shp.png) **zipcodes** | ![](png/zoning-data.shp.png) **zoning data**  
-
-
-See [world-atlas](https://github.com/mbostock/world-atlas) for the inspration for this project.
