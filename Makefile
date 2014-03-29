@@ -19,6 +19,11 @@ gz/metro/%.zip:
 	curl -L --remote-time 'http://library.oregonmetro.gov/rlisdiscovery/$(notdir $@)' -o $@.download
 	mv $@.download $@
 
+gz/trimet/%.zip:
+	mkdir -p $(dir $@)
+	curl -L --remote-time 'http://developer.trimet.org/gis/data/$(notdir $@)' -o $@.download
+	mv $@.download $@
+
 gz/osm/%.zip:
 	mkdir -p $(dir $@)
 	curl --remote-time 'http://osm-extracted-metros.s3.amazonaws.com/$(notdir $@)' -o $@.download
@@ -99,6 +104,15 @@ shp/blockgroup-2010.shp: gz/metro/blockgrp2010.zip
 shp/urban-growth-boundary.shp: gz/metro/ugb.zip
 shp/urban-growth-boundary-history.shp: gz/metro/ugb_history.zip
 shp/water.shp: gz/metro/mjriv_fi.zip
+
+# Trimet data
+shp/trimet-boundary.shp: gz/trimet/tm_boundary.zip
+shp/trimet-park-and-rides.shp: gz/trimet/tm_parkride.zip
+shp/trimet-rail-stops.shp: gz/trimet/tm_rail_stops.zip
+shp/trimet-routes.shp: gz/trimet/tm_routes.zip
+shp/trimet-stops.shp: gz/trimet/tm_stops.zip
+shp/trimet-route-stops.shp: gz/trimet/tm_route_stops.zip
+shp/trimet-transit-centers.shp: gz/trimet/tm_tran_cen.zip
 
 # Open Streetmap Datasets
 shp/osm-line.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
