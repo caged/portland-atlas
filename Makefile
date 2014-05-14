@@ -29,6 +29,11 @@ gz/osm/%.zip:
 	curl --remote-time 'http://osm-extracted-metros.s3.amazonaws.com/$(notdir $@)' -o $@.download
 	mv $@.download $@
 
+gz/dropbox/%.zip:
+	mkdir -p $(dir $@)
+	curl -L --remote-time 'https://dl.dropboxusercontent.com/u/602885/open-data/$(notdir $@)' -o $@.download
+	mv $@.download $@
+
 gz/%.zip:
 	mkdir -p $(dir $@)
 	curl --remote-time 'ftp://ftp02.portlandoregon.gov/CivicApps/$(notdir $@)' -o $@.download
@@ -120,6 +125,10 @@ shp/osm-line.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
 shp/osm-point.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
 shp/osm-polygon.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
 
+# Rehosted public data not available on the web or data that's difficult
+# to access as a result of cumbersome UIs or other burdensome reasons
+shp/school-attendance-areas.shp: gz/dropbox/school-attendance-areas.zip # (school districts)
+
 # Historic trolley datasets from pdx.edu
 #
 # Combine all, individual lines into a single shapefile.
@@ -142,7 +151,7 @@ shp/historic-trolleys.shp: gz/historic/Trolley_All.zip
 shp/%.shp:
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
-	tar -xzm -C $(basename $@) -f $<
+	tar --exclude="._*" -xzm -C $(basename $@) -f $<
 	for file in $(basename $@)/*.shp; do \
 		ogr2ogr -dim 2 -f 'ESRI Shapefile' -t_srs EPSG:4326 $(basename $@).$${file##*.} $$file; \
 		chmod 644 $(basename $@).$${file##*.}; \
