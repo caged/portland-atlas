@@ -109,6 +109,7 @@ shp/water.shp: gz/metro/mjriv_fi.zip
 shp/trimet-boundary.shp: gz/trimet/tm_boundary.zip
 shp/trimet-park-and-rides.shp: gz/trimet/tm_parkride.zip
 shp/trimet-rail-stops.shp: gz/trimet/tm_rail_stops.zip
+shp/trimet-rail-lines.shp: gz/trimet/tm_rail_lines.zip
 shp/trimet-routes.shp: gz/trimet/tm_routes.zip
 shp/trimet-stops.shp: gz/trimet/tm_stops.zip
 shp/trimet-route-stops.shp: gz/trimet/tm_route_stops.zip
