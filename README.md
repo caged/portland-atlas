@@ -10,8 +10,9 @@ This project was inspired by [world-atlas](https://github.com/mbostock/world-atl
 
 ### Install
 
+It's best to clone the repository and work directly from the project directory since most features are controlled through the Makefile.
 ```
-npm install portland-atlas
+git clone https://github.com/Caged/portland-atlas.git
 ```
 
 ### Examples
