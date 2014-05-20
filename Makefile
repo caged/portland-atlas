@@ -163,13 +163,19 @@ shp/%.shp:
 	done
 	rm -rf $(basename $@)
 
-csv/crime_incident_data_%/crime_incident_data.csv: gz/%.zip
+csv/crime-latest.csv: gz/crime_incident_data.zip
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
 	tar -xzm -C $(basename $@) -f $<
-	# echo $(basename $@)
-	# mv $(basename $@)/*.csv $(dir $@)
-	#mv $(basename $@)/$(basename $<)
+	mv $(basename $@)/*.csv $(basename $@).csv
+	rm -rf $(basename $@)
+
+csv/crime-%.csv: gz/crime_incident_data_%.zip
+	rm -rf $(basename $@)
+	mkdir -p $(basename $@)
+	tar -xzm -C $(basename $@) -f $<
+	mv $(basename $@)/*.csv $(basename $@).csv
+	rm -rf $(basename $@)
 
 topo/crime_incident_data_%.json: csv/crime_incident_data_%/crime_incident_data.csv
 	$(TOPOJSON) -x "X Coordinate" -y "Y Coordinate" -- $< > $@
