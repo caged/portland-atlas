@@ -83,9 +83,7 @@ make shp/trimet-route-stops.shp
 make shp/trimet-transit-centers.shp
 
  # Open Streetmap Datasets
-make shp/osm-line.shp
-make shp/osm-point.shp
-make shp/osm-polygon.shp
+make shp/osm.shp
 
  # Rehosted public data not available on the web or data that's difficult
  # to access as a result of cumbersome UIs or other burdensome reasons
