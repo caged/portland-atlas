@@ -1,0 +1,99 @@
+#!/bin/sh
+
+set -e
+
+make shp/bicycle-network.shp
+make shp/bicycle-parking.shp
+make shp/bridges.shp
+make shp/business-associations.shp
+make shp/lid-boundaries.shp
+make shp/cip-data.shp
+make shp/corners.shp
+make shp/counties.shp
+make shp/curbs.shp
+make shp/curb-ramps.shp
+make shp/development-opportunity-areas.shp
+make shp/contours-5ft.shp
+make shp/enterprise-ecommerce-zone.shp
+make shp/freight-districts.shp
+make shp/freight-facilities.shp
+make shp/guardrail.shp
+make shp/heritage-trees.shp
+make shp/homebuyer-opportunity-areas.shp
+make shp/intermodal-facilities.shp
+make shp/its-camera.shp
+make shp/its-sign.shp
+make shp/leaf-pickup.shp
+make shp/neighborhoods.shp
+make shp/parking-meters.shp
+make shp/parks.shp
+make shp/parks-desired-future-cond.shp
+make shp/parks-easements.shp
+make shp/parks-taxlots.shp
+make shp/parks-trails.shp
+make shp/parks-vegetation-surveys.shp
+make shp/pavement-maint.shp
+make shp/pavemoratorium.shp
+make shp/pedestrian-districts.shp
+make shp/percent-slope.shp
+make shp/sidewalks.shp
+make shp/signage-lighting-improvement-program.shp
+make shp/snow-ice-routes.shp
+make shp/storefront-improvement-areas.shp
+make shp/streets.shp
+make shp/street-contract-jobs-line.shp
+make shp/street-contract-jobs-multipoint.shp
+make shp/portland-streets-permit-jobs-line.shp
+make shp/portland-streets-permit-jobs-point.shp
+make shp/portland-streets-permit-jobs-polygon.shp
+make shp/lid-streets.shp
+make shp/street-sweeping.shp
+make shp/street-trees.shp
+make shp/traffic-calming.shp
+make shp/traffic-signal.shp
+make shp/portland-transit-stations.shp
+make shp/portland-tsp-classifications.shp
+make shp/portland-tsp-district-boundaries.shp
+make shp/urban-renewal-areas.shp
+ # This links is broken on the cities website
+make shp/vegetation.shp
+make shp/watersheds.shp
+make shp/wellhead-prot-areas.shp
+make shp/zipcodes.shp
+make shp/zoning-data.shp
+make shp/city-boundaries.shp
+make shp/building-footprints.shp
+
+ # Oregon Metro Datasets
+make shp/blockgroup-1990.shp
+make shp/blockgroup-2000.shp
+make shp/blockgroup-2010.shp
+make shp/urban-growth-boundary.shp
+make shp/urban-growth-boundary-history.shp
+make shp/water.shp
+
+# Trimet data
+make shp/trimet-boundary.shp
+make shp/trimet-park-and-rides.shp
+make shp/trimet-rail-stops.shp
+make shp/trimet-rail-lines.shp
+make shp/trimet-routes.shp
+make shp/trimet-stops.shp
+make shp/trimet-route-stops.shp
+make shp/trimet-transit-centers.shp
+
+ # Open Streetmap Datasets
+make shp/osm.shp
+
+ # Rehosted public data not available on the web or data that's difficult
+ # to access as a result of cumbersome UIs or other burdensome reasons
+make shp/school-attendance-areas.shp
+
+# Historic trolley datasets from pdx.edu
+#
+# Combine all, individual lines into a single shapefile.
+make shp/historic-trolleys.shp
+
+for file in shp/*.shp; do \
+  make png/`basename ${file%.*}`.png; \
+done

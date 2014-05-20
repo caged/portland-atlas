@@ -121,9 +121,13 @@ shp/trimet-route-stops.shp: gz/trimet/tm_route_stops.zip
 shp/trimet-transit-centers.shp: gz/trimet/tm_tran_cen.zip
 
 # Open Streetmap Datasets
-shp/osm-line.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
-shp/osm-point.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
-shp/osm-polygon.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
+shp/osm.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
+	rm -rf $(basename $@)
+	mkdir -p $(basename $@)
+	tar --exclude="._*" -xzm -C $(basename $@) -f $<
+
+	mv $(basename $@)/* shp
+	rm -rf $(basename $@)
 
 # Rehosted public data not available on the web or data that's difficult
 # to access as a result of cumbersome UIs or other burdensome reasons
@@ -152,7 +156,8 @@ shp/%.shp:
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
 	tar --exclude="._*" -xzm -C $(basename $@) -f $<
-	for file in $(basename $@)/*.shp; do \
+
+	for file in `find $(basename $@) -name '*.shp'`; do \
 		ogr2ogr -dim 2 -f 'ESRI Shapefile' -t_srs EPSG:4326 $(basename $@).$${file##*.} $$file; \
 		chmod 644 $(basename $@).$${file##*.}; \
 	done
