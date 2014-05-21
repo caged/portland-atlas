@@ -166,18 +166,61 @@ shp/%.shp:
 csv/crime-latest.csv: gz/crime_incident_data.zip
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
+
+	echo '<OGRVRTDataSource> \
+		<OGRVRTLayer name="$(notdir $(basename $@))"> \
+			<SrcDataSource>$(@F)</SrcDataSource> \
+			<GeometryType>wkbPoint</GeometryType> \
+			<LayerSRS>EPSG:2913</LayerSRS> \
+			<GeometryField encoding="PointFromColumns" x="X Coordinate" y="Y Coordinate"/> \
+			<Field name="id" src="Record ID" /> \
+			<Field name="date" src="Report Date" /> \
+			<Field name="time" src="Report Time" /> \
+			<Field name="offense type" src="Major Offense Type" /> \
+			<Field name="address" src="Address" /> \
+			<Field name="neighborhood" src="Neighborhood" /> \
+			<Field name="precinct" src="Police Precinct" /> \
+			<Field name="district" src="Police District" /> \
+		</OGRVRTLayer> \
+	</OGRVRTDataSource>' > $(@D)/$(notdir $(basename $@)).vrt
+
 	tar -xzm -C $(basename $@) -f $<
 	mv $(basename $@)/*.csv $(basename $@).csv
 	rm -rf $(basename $@)
+
+	cd $(dir $@) && ogr2ogr -overwrite -f CSV -lco GEOMETRY=AS_XY -t_srs EPSG:4326 $(notdir $(basename $@))-wgs84.csv $(notdir $(basename $@)).vrt
+	rm $(basename $@).vrt
 
 csv/crime-%.csv: gz/crime_incident_data_%.zip
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
+
+	echo '<OGRVRTDataSource> \
+		<OGRVRTLayer name="$(notdir $(basename $@))"> \
+			<SrcDataSource>$(@F)</SrcDataSource> \
+			<GeometryType>wkbPoint</GeometryType> \
+			<LayerSRS>EPSG:2913</LayerSRS> \
+			<GeometryField encoding="PointFromColumns" x="X Coordinate" y="Y Coordinate"/> \
+			<Field name="id" src="Record ID" /> \
+			<Field name="date" src="Report Date" /> \
+			<Field name="time" src="Report Time" /> \
+			<Field name="offense type" src="Major Offense Type" /> \
+			<Field name="address" src="Address" /> \
+			<Field name="neighborhood" src="Neighborhood" /> \
+			<Field name="precinct" src="Police Precinct" /> \
+			<Field name="district" src="Police District" /> \
+		</OGRVRTLayer> \
+	</OGRVRTDataSource>' > $(@D)/$(notdir $(basename $@)).vrt
+
 	tar -xzm -C $(basename $@) -f $<
 	mv $(basename $@)/*.csv $(basename $@).csv
 	rm -rf $(basename $@)
 
-topo/crime_incident_data_%.json: csv/crime_incident_data_%/crime_incident_data.csv
+	cd $(dir $@) && ogr2ogr -overwrite -f CSV -lco GEOMETRY=AS_XY -t_srs EPSG:4326 $(notdir $(basename $@))-wgs84.csv $(notdir $(basename $@)).vrt
+	rm $(basename $@).vrt
+
+topo/crime-%.json: csv/crime-%.csv
+	mkdir -p $(dir $@)
 	$(TOPOJSON) -x "X Coordinate" -y "Y Coordinate" -- $< > $@
 
 topo/neighborhoods.json: shp/neighborhoods.shp
