@@ -93,7 +93,6 @@ shp/portland-transit-stations.shp: gz/Portland_Transit_Stations.zip
 shp/portland-tsp-classifications.shp: gz/Portland_TSP_Classifications.zip
 shp/portland-tsp-district-boundaries.shp: gz/Portland_TSP_District_Boundaries.zip
 shp/urban-renewal-areas.shp: gz/Urban_Renewal_Areas_pdx.zip
-# This links is broken on the cities website
 shp/vegetation.shp: gz/vegetation_pdx.zip
 shp/watersheds.shp: gz/Watersheds_pdx.zip
 shp/wellhead-prot-areas.shp: gz/Wellhead_Prot_Areas_pdx.zip
