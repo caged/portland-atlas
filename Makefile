@@ -220,7 +220,16 @@ topo/crime-%.json: csv/crime-%.csv
 
 topo/neighborhoods.json: shp/neighborhoods.shp
 	mkdir -p $(dir $@)
-	$(TOPOJSON) -p name=NAME,shared=SHARED,len=+SHAPE_LEN,area=+SHAPE_AREA -q 1e3 -s 0.0000000001 --id-property=+OBJECTID -- $< > $@
+	${TOPOJSON} \
+		-o $@ \
+		--no-pre-quantization \
+		--post-quantization=1e3 \
+		--simplify=1e-10 \
+		--id-property=+GEODB_OID \
+		-p name=NAME \
+		-p shape_area=SHAPE_AREA \
+		-- $<
+
 
 topo/historic-trolleys.json: shp/historic-trolleys.shp
 	mkdir -p $(dir $@)
