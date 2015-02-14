@@ -99,9 +99,9 @@ shp/wellhead-prot-areas.shp: gz/Wellhead_Prot_Areas_pdx.zip
 shp/zipcodes.shp: gz/Zipcodes_pdx.zip
 shp/zoning-data.shp: gz/Zoning_Data_pdx.zip
 shp/city-boundaries.shp: gz/Cities_pdx.zip
-shp/building-footprints.shp: gz/Building_Footprints_pdx.zip
 
 # Oregon Metro Datasets
+shp/building-footprints.shp: gz/metro/buildings.zip
 shp/blockgroup-1990.shp: gz/metro/blockgrp1990.zip
 shp/blockgroup-2000.shp: gz/metro/blockgrp2000.zip
 shp/blockgroup-2010.shp: gz/metro/blockgrp2010.zip
