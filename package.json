@@ -1,6 +1,6 @@
 {
   "name": "portlnd-atlas",
-  "version": "0.0.1",
+  "version": "0.3.0",
   "license": "MIT",
   "description": "Generate topojson from a variety of Portland, Oregon geographic data",
   "keywords": [
