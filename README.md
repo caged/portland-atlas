@@ -1,11 +1,10 @@
 ## Portland Atlas
 
 * Easily download and convert public GIS (shapefile) data for Portland, Oregon.
-* Generate [TopoJSON](https://github.com/mbostock/topojson) for Portland Neigborhoods, combined with 2000 and 2010 [demographic data](http://www.portlandoregon.gov/oni/28387).
-* Generate png images from shapefiles
+* Generate png images from Shapefiles
 
 
-This project was inspired by [world-atlas](https://github.com/mbostock/world-atlas).
+This project was influenced by [world-atlas](https://github.com/mbostock/world-atlas).
 
 
 ### Install
@@ -20,7 +19,6 @@ git clone https://github.com/Caged/portland-atlas.git
 ```
 make shp/neighborhoods.shp
 make topo/neighborhoods.json
-make topo/neighborhoods-demographics.json
 make png/neighborhoods.png
 ```
 
