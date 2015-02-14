@@ -230,6 +230,17 @@ topo/neighborhoods.json: shp/neighborhoods.shp
 		-p shape_area=SHAPE_AREA \
 		-- $<
 
+topo/parks.json: shp/parks.shp
+	mkdir -p $(dir $@)
+	${TOPOJSON} \
+		-o $@ \
+		--no-pre-quantization \
+		--post-quantization=1e4 \
+		--simplify=1e-11 \
+		--id-property=+GEODB_OID \
+		-p name=NAME \
+		-p arcres=ACRES \
+		-- $<
 
 topo/historic-trolleys.json: shp/historic-trolleys.shp
 	mkdir -p $(dir $@)
