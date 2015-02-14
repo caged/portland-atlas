@@ -1,8 +1,4 @@
-TOPOJSON = node --max_old_space_size=8192 node_modules/.bin/topojson
-
-COMMON_NEIGHBORHOOD_PROPERTIES = egh_public=+EGH_PUBLIC,perimeter=+PERIMETER,nbo=+NBO_,nbo_id=+NBO_ID,commplan=COMMPLAN,shared=SHARED,coalit=COALIT,check=CHECK_,horz_vert=HORZ_VERT,shape_area=+SHAPE_AREA,shape_len=+SHAPE_LEN,neighborhood
-DEMOGRAPHIC_PROPERTIES_2000 = $(COMMON_NEIGHBORHOOD_PROPERTIES),+p001001,+p008003,+p008004,+p008005,+p008006,+p008007,+p008008,+p008009,+p008011,+p008012,+p008013,+p008014,+p008015,+p008016,+p008017,+p01000310,+p01000411,+p01000512,+p01000613,+p01000714,+p01000815,+p012003,+p012004,+p012005,+p012006,+p012007,+p01200810,+p012011,+p012012,+p012013,+p012014,+p012015,+p012016,+p012017,+p01201819,+p01202021,+p012022,+p012023,+p012024,+p012025,+p012027,+p012028,+p012029,+p012030,+p012031,+p01203234,+p012035,+p012036,+p012037,+p012038,+p012039,+p012040,+p012041,+p01204243,+p01204445,+p012046,+p012047,+p012048,+p012049,+p018003,+p018004,+p018007,+p018008,+p018011,+p018012,+p018014,+p018015,+p018017,+p019002,+p023002,+p027004,+p027007,+p027008,+p02701114,+p027015,+p02701720,+p027023,+p028002,+p028005,+p030002,+p030013,+p030016,+p038000422,+p038003250,+p038000826,+p038003654,+h001001,+h004002,+h004003,+h005002,+h005003,+h005004,+h005005,+h005006,+h005007,+h011002,+h011003,+arealand,+areawatr
-DEMOGRAPHIC_PROPERTIES_2010 = $(COMMON_NEIGHBORHOOD_PROPERTIES),+p0010001,+p0050003,+p0050004,+p0050005,+p0050006,+p0050007,+p0050008,+p0050009,+p0050011,+p0050012,+p0050013,+p0050014,+p0050015,+p0050016,+p0050017,+p007000310,+p007000411,+p007000512,+p007000613,+p007000714,+p007000815,+p0120003,+p0120004,+p0120005,+p0120006,+p0120007,+p012000810,+p0120011,+p0120012,+p0120013,+p0120014,+p0120015,+p0120016,+p0120017,+p012001819,+p012002021,+p0120022,+p0120023,+p0120024,+p0120025,+p0120027,+p0120028,+p0120029,+p0120030,+p0120031,+p012003234,+p0120035,+p0120036,+p0120037,+p0120038,+p0120039,+p0120040,+p0120041,+p012004243,+p012004445,+p0120046,+p0120047,+p0120048,+p0120049,+p0190003,+p0190004,+p0190007,+p0190008,+p0190011,+p0190012,+p0190014,+p0190015,+p0190017,+p0200002,+p0250002,+p0290004,+p0290007,+p029000810,+p029001116,+p0290017,+p029001922,+p0290025,+p0310002,+p0310005,+p0340002,+p0340014,+p0340017,+p043000424,+p043003555,+p043000929,+p043004060,+h0010001,+h0040002,+h0040003,+h0040004,+h0050002,+h0050004,+h005000305,+h0050006,+h0050007,+h0050008,+h011000203,+h0110004,+arealand,+areawatr
+TOPOJSON = node node_modules/.bin/topojson
 
 node_modules:
 	npm install
@@ -225,27 +221,6 @@ topo/crime-%.json: csv/crime-%.csv
 topo/neighborhoods.json: shp/neighborhoods.shp
 	mkdir -p $(dir $@)
 	$(TOPOJSON) -p name=NAME,shared=SHARED,len=+SHAPE_LEN,area=+SHAPE_AREA -q 1e3 -s 0.0000000001 --id-property=+OBJECTID -- $< > $@
-
-topo/neighborhoods-demographics.json: shp/neighborhoods.shp
-	mkdir -p $(dir $@)
-	$(TOPOJSON) -p $(DEMOGRAPHIC_PROPERTIES_2000),$(DEMOGRAPHIC_PROPERTIES_2010) \
-		-q 1e3 -s 0.0000000001 \
-		--external-properties static/reconciled-neighborhood-demographics-combined.csv \
-		--id-property=OBJECTID,+id -- $< > $@
-
-topo/neighborhoods-demographics-2000.json: shp/neighborhoods.shp
-	mkdir -p $(dir $@)
-	$(TOPOJSON) -p $(DEMOGRAPHIC_PROPERTIES_2000) \
-		-q 1e3 -s 0.0000000001 \
-		--external-properties static/reconciled-neighborhood-demographics-2000.csv \
-		--id-property=OBJECTID,+id -- $< > $@
-
-topo/neighborhoods-demographics-2010.json: shp/neighborhoods.shp
-	mkdir -p $(dir $@)
-	$(TOPOJSON) -p $(DEMOGRAPHIC_PROPERTIES_2010) \
-		-q 1e3 -s 0.0000000001 \
-		--external-properties static/reconciled-neighborhood-demographics-2010.csv \
-		--id-property=OBJECTID,+id -- $< > $@
 
 topo/historic-trolleys.json: shp/historic-trolleys.shp
 	mkdir -p $(dir $@)
