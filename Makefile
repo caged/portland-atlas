@@ -12,6 +12,7 @@ node_modules:
 gz/historic/Trolley_All.zip:
 	mkdir -p $(dir $@)
 	curl --remote-time 'http://www.upa.pdx.edu/IMS/currentprojects/TAHv3/GIS_Data/Portlands_People/$(notdir $@)' -o $@.download
+	mv $@.download $@
 
 gz/metro/%.zip:
 	mkdir -p $(dir $@)
