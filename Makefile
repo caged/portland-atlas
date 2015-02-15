@@ -276,6 +276,9 @@ topo/historic-trolleys.json: shp/historic-trolleys.shp
 	mkdir -p $(dir $@)
 	$(TOPOJSON) -q 1e3 -s 9e-9 -p street=STREET,year=+Year_,notes=Notes -- $< > $@
 
+################################################################################
+# PNG
+################################################################################
 png/%.png: shp/%.shp bin/rasterize
 	mkdir -p $(dir $@)
 	node bin/rasterize $< $@
