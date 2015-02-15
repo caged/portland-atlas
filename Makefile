@@ -269,6 +269,31 @@ topo/parks.json: shp/parks.shp
 		-p arcres=ACRES \
 		-- $<
 
+topo/buildings.json: shp/buildings/portland.shp
+	mkdir -p $(dir $@)
+	${TOPOJSON} \
+		-o $@ \
+		--simplify=1 \
+		--id-property=BLDG_ID \
+		-p use=BLDG_USE \
+		-- $<
+
+topo/streets-major-unmerged.json: shp/streets-major.shp
+	mkdir -p $(dir $@)
+	${TOPOJSON} \
+		-o $@ \
+		--no-pre-quantization \
+		--simplify=1e-7 \
+		--id-property=FULL_NAME \
+		-p length=LENGTH \
+		-- $<
+
+topo/streets-major.json: topo/streets-major-unmerged.json
+	mkdir -p $(dir $@)
+	node_modules/.bin/topojson-group \
+		-o $@ \
+		-- $<
+
 topo/historic-trolleys.json: shp/historic-trolleys.shp
 	mkdir -p $(dir $@)
 	$(TOPOJSON) -q 1e3 -s 9e-9 -p street=STREET,year=+Year_,notes=Notes -- $< > $@
