@@ -147,6 +147,33 @@ shp/historic-trolleys.shp: gz/historic/Trolley_All.zip
 	rm -rf $(basename $@)
 	rm $(dir $@)Alberta.*
 
+# Freeway, highway, primary arterial, secondary arterial and major residential
+shp/streets-major.shp: shp/streets.shp
+	ogr2ogr -where 'TYPE IN (1110, 1200, 1300, 1400, 1450)' $@ $<
+
+# Simplified portland-only buildings
+shp/buildings/portland.shp: shp/buildings.shp
+	mkdir -p $(dir $@)
+	ogr2ogr -dialect sqlite \
+		-sql "select BLDG_ID, ST_UNION(Geometry), \
+					case lower(BLDG_USE) \
+					when 'commercial general'         then 'commercial' \
+					when 'commercial grocery'         then 'retail' \
+					when 'commercial hotel'           then 'hotel' \
+					when 'commercial office'          then 'office' \
+					when 'commercial restaurant'      then 'commercial' \
+					when 'commercial retail'          then 'retail' \
+					when 'industrial'                 then 'industrial' \
+					when 'institutional religious'    then 'church' \
+					when 'multi family residential'   then 'apartments' \
+					when 'parking'                    then 'garage' \
+					when 'single family residential'  then 'residential' \
+					else NULL \
+					end as BLDG_USE \
+					from buildings \
+					where SUBAREA = 'City of Portland' \
+					group by BLDG_ID, BLDG_USE" $@ $<
+
 shp/%.shp:
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
