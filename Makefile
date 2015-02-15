@@ -6,6 +6,9 @@ node_modules:
 
 .SECONDARY:
 
+################################################################################
+#	ARCHIVES
+################################################################################
 gz/historic/Trolley_All.zip:
 	mkdir -p $(dir $@)
 	curl --remote-time 'http://www.upa.pdx.edu/IMS/currentprojects/TAHv3/GIS_Data/Portlands_People/$(notdir $@)' -o $@.download
@@ -36,7 +39,9 @@ gz/%.zip:
 	curl --remote-time 'ftp://ftp02.portlandoregon.gov/CivicApps/$(notdir $@)' -o $@.download
 	mv $@.download $@
 
-# City of Portland, Bureau of Planning and Sustainability datasets
+################################################################################
+#	SHAPEFILES: CITY OF PORTLAND
+################################################################################
 shp/bicycle-network.shp: gz/Bicycle_Network_pdx.zip
 shp/bicycle-parking.shp: gz/bicycle_parking_pdx.zip
 shp/bridges.shp: gz/Bridges_pdx.zip
@@ -97,7 +102,9 @@ shp/zipcodes.shp: gz/Zipcodes_pdx.zip
 shp/zoning-data.shp: gz/Zoning_Data_pdx.zip
 shp/city-boundaries.shp: gz/Cities_pdx.zip
 
-# Oregon Metro Datasets
+################################################################################
+#	SHAPEFILES: OREGON METRO
+################################################################################
 shp/buildings.shp: gz/metro/buildings.zip
 shp/blockgroup-1990.shp: gz/metro/blockgrp1990.zip
 shp/blockgroup-2000.shp: gz/metro/blockgrp2000.zip
@@ -106,7 +113,9 @@ shp/urban-growth-boundary.shp: gz/metro/ugb.zip
 shp/urban-growth-boundary-history.shp: gz/metro/ugb_history.zip
 shp/water.shp: gz/metro/mjriv_fi.zip
 
-# Trimet data
+################################################################################
+#	SHAPEFILES: TRIMET
+################################################################################
 shp/trimet-boundary.shp: gz/trimet/tm_boundary.zip
 shp/trimet-park-and-rides.shp: gz/trimet/tm_parkride.zip
 shp/trimet-rail-stops.shp: gz/trimet/tm_rail_stops.zip
@@ -116,7 +125,9 @@ shp/trimet-stops.shp: gz/trimet/tm_stops.zip
 shp/trimet-route-stops.shp: gz/trimet/tm_route_stops.zip
 shp/trimet-transit-centers.shp: gz/trimet/tm_tran_cen.zip
 
-# Open Streetmap Datasets
+################################################################################
+#	SHAPEFILES: OPENSTREETMAP
+################################################################################
 shp/osm.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
@@ -125,13 +136,16 @@ shp/osm.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
 	mv $(basename $@)/* shp
 	rm -rf $(basename $@)
 
+################################################################################
+#	SHAPEFILES: CUSTOM/DROPBOX
 # Rehosted public data not available on the web or data that's difficult
 # to access as a result of cumbersome UIs or other burdensome reasons
+################################################################################
 shp/school-attendance-areas.shp: gz/dropbox/school-attendance-areas.zip # (school districts)
 
-# Historic trolley datasets from pdx.edu
-#
-# Combine all, individual lines into a single shapefile.
+################################################################################
+# SHAPEFILES: PDX.EDU
+################################################################################
 shp/historic-trolleys.shp: gz/historic/Trolley_All.zip
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
@@ -148,6 +162,9 @@ shp/historic-trolleys.shp: gz/historic/Trolley_All.zip
 	rm -rf $(basename $@)
 	rm $(dir $@)Alberta.*
 
+################################################################################
+# SHAPEFILES: SECOND-STAGE SIMPLIFIED
+################################################################################
 # Freeway, highway, primary arterial, secondary arterial and major residential
 shp/streets-major.shp: shp/streets.shp
 	ogr2ogr -where 'TYPE IN (1110, 1200, 1300, 1400, 1450)' $@ $<
@@ -175,6 +192,9 @@ shp/buildings/portland.shp: shp/buildings.shp
 					where SUBAREA = 'City of Portland' \
 					group by BLDG_ID, BLDG_USE" $@ $<
 
+################################################################################
+# SHAPEFILES: META
+################################################################################
 shp/%.shp:
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
@@ -186,6 +206,9 @@ shp/%.shp:
 	done
 	rm -rf $(basename $@)
 
+################################################################################
+# CSV
+################################################################################
 csv/crime-latest.csv: gz/crime_incident_data.zip
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
@@ -242,6 +265,9 @@ csv/crime-%.csv: gz/crime_incident_data_%.zip
 	cd $(dir $@) && ogr2ogr -overwrite -f CSV -lco GEOMETRY=AS_XY -t_srs EPSG:4326 $(notdir $(basename $@))-wgs84.csv $(notdir $(basename $@)).vrt
 	rm $(basename $@).vrt
 
+################################################################################
+# TOPOJSON
+################################################################################
 topo/crime-%.json: csv/crime-%.csv
 	mkdir -p $(dir $@)
 	$(TOPOJSON) -x "X Coordinate" -y "Y Coordinate" -- $< > $@
