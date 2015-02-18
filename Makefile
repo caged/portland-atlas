@@ -138,6 +138,7 @@ shp/osm.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
 
 ################################################################################
 #	SHAPEFILES: CUSTOM/DROPBOX
+#
 # Rehosted public data not available on the web or data that's difficult
 # to access as a result of cumbersome UIs or other burdensome reasons
 ################################################################################
@@ -165,6 +166,7 @@ shp/historic-trolleys.shp: gz/historic/Trolley_All.zip
 ################################################################################
 # SHAPEFILES: SECOND-STAGE SIMPLIFIED
 ################################################################################
+
 # Freeway, highway, primary arterial, secondary arterial and major residential
 shp/streets-major.shp: shp/streets.shp
 	ogr2ogr -where 'TYPE IN (1110, 1200, 1300, 1400, 1450)' $@ $<
@@ -275,6 +277,36 @@ topo/crime-%.json: csv/crime-%.csv
 topo/historic-trolleys.json: shp/historic-trolleys.shp
 	mkdir -p $(dir $@)
 	$(TOPOJSON) -q 1e3 -s 9e-9 -p street=STREET,year=+Year_,notes=Notes -- $< > $@
+
+topo/streets-ungrouped.json: shp/streets-major.shp
+	mkdir -p $(dir $@)
+	${TOPOJSON} \
+		-o $@ \
+		--no-pre-quantization \
+		--simplify=1e-7 \
+		--id-property=FULL_NAME \
+		-p length=LENGTH \
+		-- $<
+
+topo/streets.json: topo/streets-ungrouped.json
+	mkdir -p $(dir $@)
+	node_modules/.bin/topojson-group \
+		-o $@ \
+		-- $<
+
+topo/projected/buildings.json: shp/buildings/portland.shp
+topo/projected/parks.json: shp/parks.shp
+topo/projected/streets.json: topo/streets.json
+
+topo/projected/%.json:
+	mkdir -p $(dir $@)
+	$(TOPOJSON) \
+    --width 960 \
+    --height 800 \
+    --margin 20 \
+    -s .50 \
+    -o $@ \
+    -- $<
 
 ################################################################################
 # PNG
