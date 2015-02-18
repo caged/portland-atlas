@@ -92,8 +92,8 @@ shp/street-trees.shp: gz/Street_Trees_pdx.zip
 shp/traffic-calming.shp: gz/traffic_calming_pdx.zip
 shp/traffic-signal.shp: gz/traffic_signal_pdx.zip
 shp/portland-transit-stations.shp: gz/Portland_Transit_Stations.zip
-shp/portland-tsp-classifications.shp: gz/Portland_TSP_Classifications.zip
-shp/portland-tsp-district-boundaries.shp: gz/Portland_TSP_District_Boundaries.zip
+shp/tsp-classifications.shp: gz/TSP_Classifications_pdx.zip
+shp/tsp-district-boundaries.shp: gz/TSP_District_Boundaries_pdx.zip
 shp/urban-renewal-areas.shp: gz/Urban_Renewal_Areas_pdx.zip
 shp/vegetation.shp: gz/vegetation_pdx.zip
 shp/watersheds.shp: gz/Watersheds_pdx.zip
