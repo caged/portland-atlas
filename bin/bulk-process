@@ -52,17 +52,16 @@ make shp/street-trees.shp
 make shp/traffic-calming.shp
 make shp/traffic-signal.shp
 make shp/portland-transit-stations.shp
-make shp/portland-tsp-classifications.shp
-make shp/portland-tsp-district-boundaries.shp
+make shp/tsp-classifications.shp
+make shp/tsp-district-boundaries.shp
 make shp/urban-renewal-areas.shp
- # This links is broken on the cities website
 make shp/vegetation.shp
 make shp/watersheds.shp
 make shp/wellhead-prot-areas.shp
 make shp/zipcodes.shp
 make shp/zoning-data.shp
 make shp/city-boundaries.shp
-make shp/building-footprints.shp
+make shp/buildings.shp
 
  # Oregon Metro Datasets
 make shp/blockgroup-1990.shp
