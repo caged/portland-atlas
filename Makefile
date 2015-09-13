@@ -73,7 +73,7 @@ shp/parks-easements.shp: gz/Parks_Easements_pdx.zip
 shp/parks-taxlots.shp: gz/Parks_Taxlots_pdx.zip
 shp/parks-trails.shp: gz/Parks_Trails_pdx.zip
 shp/parks-vegetation-surveys.shp: gz/Parks_Vegetation_Surveys_pdx.zip
-shp/pavement-maint.shp: gz/Pavement_Maint_pdx.zip
+shp/pavement-maint.shp: gz/Pavement_PMS_pdx.zip
 shp/pavemoratorium.shp: gz/Pavemoratorium.zip
 shp/pedestrian-districts.shp: gz/Pedestrian_Districts_pdx.zip
 shp/percent-slope.shp: gz/Percent_Slope_pdx.zip
