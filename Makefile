@@ -65,7 +65,7 @@ shp/its-camera.shp: gz/its_camera_pdx.zip
 shp/its-sign.shp: gz/its_sign_pdx.zip
 shp/leaf-pickup.shp: gz/Leaf_Pickup_pdx.zip
 shp/neighborhoods.shp: gz/Neighborhoods_pdx.zip
-shp/parking-meters.shp: gz/Parking_Meters_pdx.zip
+shp/parking-meters.shp: gz/Parking_Meter_pdx.zip
 shp/parks.shp: gz/Parks_pdx.zip
 shp/parks-desired-future-cond.shp: gz/Parks_Desired_Future_Cond_pdx.zip
 shp/parks-easements.shp: gz/Parks_Easements_pdx.zip
