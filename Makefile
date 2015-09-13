@@ -99,9 +99,9 @@ shp/urban-renewal-areas.shp: gz/Urban_Renewal_Areas_pdx.zip
 shp/vegetation.shp: gz/vegetation_pdx.zip
 shp/watersheds.shp: gz/Watersheds_Web_BES_pdx.zip
 shp/wellhead-prot-areas.shp: gz/Wellhead_Prot_Areas_pdx.zip
-shp/zipcodes.shp: gz/Zipcodes_pdx.zip
 shp/zoning-data.shp: gz/Zoning_Data_pdx.zip
 shp/city-boundaries.shp: gz/City_metro.zip
+shp/zipcodes.shp: gz/Zipcode_metro.zip
 
 ################################################################################
 #	SHAPEFILES: OREGON METRO
