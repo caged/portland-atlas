@@ -49,7 +49,7 @@ shp/business-associations.shp: gz/Business_Associations_pdx.zip
 shp/lid-boundaries.shp: gz/LID_Boundaries_pdx.zip
 shp/cip-data.shp: gz/CIP_Data.zip
 shp/corners.shp: gz/Corners_pdx.zip
-shp/counties.shp: gz/Counties_pdx.zip
+shp/counties.shp: gz/County_metro.zip
 shp/curbs.shp: gz/Curbs_pdx.zip
 shp/curb-ramps.shp: gz/Curb_Ramps_pdx.zip
 shp/development-opportunity-areas.shp: gz/Development_Opportunity_Areas_pdx.zip
