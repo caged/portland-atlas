@@ -17,8 +17,8 @@ while(i--) {
   var name = png.replace('.shp.png', '').replace('.png', '').replace(/-/g, ' ')
 
   if(i % 4 == 0) {
-    process.stdout.write("![](https://raw.githubusercontent.com/Caged/portland-atlas/master/png/" + png + ") **" + name + "**  \n")
+    process.stdout.write("![](png/" + png + ") **" + name + "**  \n")
   } else {
-    process.stdout.write("![](https://raw.githubusercontent.com/Caged/portland-atlas/master/png/" + png + ") **" + name + "** | ")
+    process.stdout.write("![](png/" + png + ") **" + name + "** | ")
   }
 }
