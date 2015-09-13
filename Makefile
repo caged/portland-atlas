@@ -82,11 +82,11 @@ shp/signage-lighting-improvement-program.shp: gz/Signage_Lighting_Imp_Prog_pdx.z
 shp/snow-ice-routes.shp: gz/PDOT_Snow_Ice_Routes_pdx.zip
 shp/storefront-improvement-areas.shp: gz/Storefront_Imp_Areas_pdx.zip
 shp/streets.shp: gz/Streets_pdx.zip
-shp/portland-streets-permit-jobs-line.shp: gz/Portland_Streets_Permit_Jobs_Line.zip
-shp/portland-streets-permit-jobs-point.shp: gz/Portland_Streets_Permit_Jobs_Point.zip
-shp/portland-streets-permit-jobs-polygon.shp: gz/Portland_Streets_Permit_Jobs_Polygon.zip
 shp/street-contract-jobs-line.shp: gz/Contract_Jobs_line_pdx.zip
 shp/street-contract-jobs-multipoint.shp: gz/Contract_Jobs_multipoint_pdx.zip
+shp/portland-streets-permit-jobs-line.shp: gz/Permit_Jobs_Line_pdx.zip
+shp/portland-streets-permit-jobs-point.shp: gz/Permit_Jobs_Point_pdx.zip
+shp/portland-streets-permit-jobs-polygon.shp: gz/Permit_Jobs_Polygon_pdx.zip
 shp/lid-streets.shp: gz/LID_Streets_pdx.zip
 shp/street-sweeping.shp: gz/Street_Sweeping_pdx.zip
 shp/street-trees.shp: gz/Street_Trees_pdx.zip
