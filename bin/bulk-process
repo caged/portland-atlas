@@ -5,9 +5,11 @@ set -e
 make shp/bicycle-network.shp
 make shp/bicycle-parking.shp
 make shp/bridges.shp
+make shp/buildings.shp
 make shp/business-associations.shp
 make shp/lid-boundaries.shp
 make shp/cip-data.shp
+make shp/city-boundaries.shp
 make shp/corners.shp
 make shp/counties.shp
 make shp/curbs.shp
@@ -59,9 +61,7 @@ make shp/vegetation.shp
 make shp/watersheds.shp
 make shp/wellhead-prot-areas.shp
 make shp/zipcodes.shp
-make shp/zoning-data.shp
-make shp/city-boundaries.shp
-make shp/buildings.shp
+make shp/zoning_pdx.shp
 
  # Oregon Metro Datasets
 make shp/blockgroup-1990.shp
