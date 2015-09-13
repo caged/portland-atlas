@@ -88,7 +88,7 @@ shp/portland-streets-permit-jobs-line.shp: gz/Permit_Jobs_Line_pdx.zip
 shp/portland-streets-permit-jobs-point.shp: gz/Permit_Jobs_Point_pdx.zip
 shp/portland-streets-permit-jobs-polygon.shp: gz/Permit_Jobs_Polygon_pdx.zip
 shp/lid-streets.shp: gz/LID_Streets_pdx.zip
-shp/street-sweeping.shp: gz/Street_Sweeping_pdx.zip
+shp/street-sweeping.shp: gz/Portland_Street_Sweeping.zip
 shp/street-trees.shp: gz/Street_Trees_pdx.zip
 shp/traffic-calming.shp: gz/traffic_calming_pdx.zip
 shp/traffic-signal.shp: gz/traffic_signal_pdx.zip
