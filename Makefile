@@ -100,7 +100,13 @@ shp/vegetation.shp: gz/vegetation_pdx.zip
 shp/watersheds.shp: gz/Watersheds_Web_BES_pdx.zip
 shp/wellhead-prot-areas.shp: gz/Wellhead_Prot_Areas_pdx.zip
 shp/zipcodes.shp: gz/Zipcode_metro.zip
-shp/zoning-data.shp: gz/Zoning.zip
+shp/zoning_pdx.shp: gz/Zoning.zip
+	rm -rf $(basename $@)
+	mkdir -p $(basename $@)
+	tar --exclude="._*" -xzm -C $(basename $@) -f $<
+
+	mv $(basename $@)/PortlandZoning/* shp
+	rm -rf $(basename $@)
 
 ################################################################################
 #	SHAPEFILES: OREGON METRO
