@@ -100,7 +100,7 @@ shp/watersheds.shp: gz/Watersheds_pdx.zip
 shp/wellhead-prot-areas.shp: gz/Wellhead_Prot_Areas_pdx.zip
 shp/zipcodes.shp: gz/Zipcodes_pdx.zip
 shp/zoning-data.shp: gz/Zoning_Data_pdx.zip
-shp/city-boundaries.shp: gz/Cities_pdx.zip
+shp/city-boundaries.shp: gz/City_metro.zip
 
 ################################################################################
 #	SHAPEFILES: OREGON METRO
