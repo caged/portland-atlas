@@ -57,7 +57,7 @@ shp/contours-5ft.shp: gz/Contours_5ft_metro.zip
 shp/enterprise-ecommerce-zone.shp: gz/Enterprise_ECommerce_Zone_pdx.zip
 shp/freight-districts.shp: gz/Freight_Districts_pdx.zip
 shp/freight-facilities.shp: gz/Freight_Facilities_pdx.zip
-shp/guardrail.shp: gz/guardrail_pdx.zip
+shp/guardrail.shp: gz/Guardrail_pdx.zip
 shp/heritage-trees.shp: gz/Heritage_Trees_pdx.zip
 shp/homebuyer-opportunity-areas.shp: gz/HomeBuyer_Opportunity_Areas_pdx.zip
 shp/intermodal-facilities.shp: gz/Intermodal_Facilities_pdx.zip
