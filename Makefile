@@ -77,7 +77,7 @@ shp/pavemoratorium.shp: gz/Pavemoratorium.zip
 shp/pedestrian-districts.shp: gz/Pedestrian_Districts_pdx.zip
 shp/percent-slope.shp: gz/Percent_Slope_pdx.zip
 shp/sidewalks.shp: gz/Sidewalk_pdx.zip
-shp/signage-lighting-improvement-program.shp: gz/Signage_Lighting_Improvement_Program_pdx.zip
+shp/signage-lighting-improvement-program.shp: gz/Signage_Lighting_Imp_Prog_pdx.zip
 shp/snow-ice-routes.shp: gz/Snow_Ice_Routes_pdx.zip
 shp/storefront-improvement-areas.shp: gz/Storefront_Improvement_Areas_pdx.zip
 shp/streets.shp: gz/Streets_pdx.zip
