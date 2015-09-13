@@ -79,7 +79,7 @@ shp/percent-slope.shp: gz/Percent_Slope_pdx.zip
 shp/sidewalks.shp: gz/Sidewalk_pdx.zip
 shp/signage-lighting-improvement-program.shp: gz/Signage_Lighting_Imp_Prog_pdx.zip
 shp/snow-ice-routes.shp: gz/PDOT_Snow_Ice_Routes_pdx.zip
-shp/storefront-improvement-areas.shp: gz/Storefront_Improvement_Areas_pdx.zip
+shp/storefront-improvement-areas.shp: gz/Storefront_Imp_Areas_pdx.zip
 shp/streets.shp: gz/Streets_pdx.zip
 shp/street-contract-jobs-line.shp: gz/Street_Contract_Jobs_line_pdx.zip
 shp/street-contract-jobs-multipoint.shp: gz/Street_Contract_Jobs_multipoint_pdx.zip
