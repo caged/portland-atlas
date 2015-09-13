@@ -59,7 +59,7 @@ shp/freight-districts.shp: gz/Freight_Districts_pdx.zip
 shp/freight-facilities.shp: gz/Freight_Facilities_pdx.zip
 shp/guardrail.shp: gz/Guardrail_pdx.zip
 shp/heritage-trees.shp: gz/Heritage_Trees_pdx.zip
-shp/homebuyer-opportunity-areas.shp: gz/HomeBuyer_Opportunity_Areas_pdx.zip
+shp/homebuyer-opportunity-areas.shp: gz/LTA_HomeBuyer_Opportunity_Areas_pdx.zip
 shp/intermodal-facilities.shp: gz/Intermodal_Facilities_pdx.zip
 shp/its-camera.shp: gz/its_camera_pdx.zip
 shp/its-sign.shp: gz/its_sign_pdx.zip
