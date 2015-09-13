@@ -47,7 +47,7 @@ shp/bicycle-parking.shp: gz/bicycle_parking_pdx.zip
 shp/bridges.shp: gz/Bridge_pdx.zip
 shp/business-associations.shp: gz/Business_Associations_pdx.zip
 shp/lid-boundaries.shp: gz/LID_Boundaries_pdx.zip
-shp/cip-data.shp: gz/CIP_Data_pdx.zip
+shp/cip-data.shp: gz/CIP_Data.zip
 shp/corners.shp: gz/Corners_pdx.zip
 shp/counties.shp: gz/Counties_pdx.zip
 shp/curbs.shp: gz/Curbs_pdx.zip
