@@ -19,8 +19,8 @@
     "url": "http://github.com/caged/portland-atlas.git"
   },
   "devDependencies": {
-    "canvas": "1",
-    "d3": "3",
+    "d3": "3.5.5",
+    "canvas": "1.2.3",
     "shapefile": "git+https://github.com/Caged/shapefile.git#header-event",
     "topojson": "1"
   }
