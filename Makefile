@@ -48,6 +48,7 @@ shp/bridges.shp: gz/Bridge_pdx.zip
 shp/business-associations.shp: gz/Business_Associations_pdx.zip
 shp/lid-boundaries.shp: gz/LID_Boundaries_pdx.zip
 shp/cip-data.shp: gz/CIP_Data.zip
+shp/city-boundaries.shp: gz/City_metro.zip
 shp/corners.shp: gz/Corners_pdx.zip
 shp/counties.shp: gz/County_metro.zip
 shp/curbs.shp: gz/Curb_pdx.zip
