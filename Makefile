@@ -44,7 +44,7 @@ gz/%.zip:
 ################################################################################
 shp/bicycle-network.shp: gz/Bicycle_Network_pdx.zip
 shp/bicycle-parking.shp: gz/bicycle_parking_pdx.zip
-shp/bridges.shp: gz/Bridges_pdx.zip
+shp/bridges.shp: gz/Bridge_pdx.zip
 shp/business-associations.shp: gz/Business_Associations_pdx.zip
 shp/lid-boundaries.shp: gz/LID_Boundaries_pdx.zip
 shp/cip-data.shp: gz/CIP_Data_pdx.zip
