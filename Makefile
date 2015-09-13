@@ -53,7 +53,7 @@ shp/counties.shp: gz/Counties_pdx.zip
 shp/curbs.shp: gz/Curbs_pdx.zip
 shp/curb-ramps.shp: gz/Curb_Ramps_pdx.zip
 shp/development-opportunity-areas.shp: gz/Development_Opportunity_Areas_pdx.zip
-shp/contours-5ft.shp: gz/Contours_5ft_pdx.zip
+shp/contours-5ft.shp: gz/Contours_5ft_metro.zip
 shp/enterprise-ecommerce-zone.shp: gz/Enterprise_ECommerce_Zone_pdx.zip
 shp/freight-districts.shp: gz/Freight_Districts_pdx.zip
 shp/freight-facilities.shp: gz/Freight_Facilities_pdx.zip
