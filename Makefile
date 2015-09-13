@@ -60,7 +60,7 @@ shp/freight-districts.shp: gz/Freight_Districts_pdx.zip
 shp/freight-facilities.shp: gz/Freight_Facilities_pdx.zip
 shp/guardrail.shp: gz/Guardrail_pdx.zip
 shp/heritage-trees.shp: gz/Heritage_Trees_pdx.zip
-shp/homebuyer-opportunity-areas.shp: gz/LTA_HomeBuyer_Opportunity_Areas_pdx.zip
+shp/homebuyer-opportunity-areas.shp: gz/LTA_HomeBuyer_Opportunity_pdx.zip
 shp/intermodal-facilities.shp: gz/Intermodal_Facilities_pdx.zip
 shp/its-camera.shp: gz/its_camera_pdx.zip
 shp/its-sign.shp: gz/its_sign_pdx.zip
@@ -92,7 +92,7 @@ shp/street-sweeping.shp: gz/Portland_Street_Sweeping.zip
 shp/street-trees.shp: gz/Street_Trees_pdx.zip
 shp/traffic-calming.shp: gz/traffic_calming_pdx.zip
 shp/traffic-signal.shp: gz/traffic_signal_pdx.zip
-shp/portland-transit-stations.shp: gz/Transit_Stations.zip
+shp/portland-transit-stations.shp: gz/Transit_Stations_pdx.zip
 shp/tsp-classifications.shp: gz/TSP_Classifications_pdx.zip
 shp/tsp-district-boundaries.shp: gz/TSP_District_Boundaries_pdx.zip
 shp/urban-renewal-areas.shp: gz/Urban_Renewal_Areas_pdx.zip
