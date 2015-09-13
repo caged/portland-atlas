@@ -203,7 +203,7 @@ shp/%.shp:
 	tar --exclude="._*" -xzm -C $(basename $@) -f $<
 
 	for file in `find $(basename $@) -name '*.shp'`; do \
-		ogr2ogr -dim 2 -f 'ESRI Shapefile' -t_srs ${OREGON_NORTH_SRS} $(basename $@).$${file##*.} $$file; \
+		ogr2ogr -dim 2 -f 'ESRI Shapefile' -t_srs 'EPSG:4326' $(basename $@).$${file##*.} $$file; \
 		chmod 644 $(basename $@).$${file##*.}; \
 	done
 	rm -rf $(basename $@)
