@@ -105,7 +105,11 @@ shp/zoning_pdx.shp: gz/Zoning.zip
 	mkdir -p $(basename $@)
 	tar --exclude="._*" -xzm -C $(basename $@) -f $<
 
-	mv $(basename $@)/PortlandZoning/* shp
+	for file in `find $(basename $@)/PortlandZoning -name '*.shp'`; do \
+		echo shp/$$(basename $$file); \
+		ogr2ogr -dim 2 -f 'ESRI Shapefile' -t_srs 'EPSG:4326' shp/$$(basename $$file) $$file; \
+	done
+	
 	rm -rf $(basename $@)
 
 ################################################################################
