@@ -26,7 +26,7 @@ gz/trimet/%.zip:
 
 gz/osm/%.zip:
 	mkdir -p $(dir $@)
-	curl --remote-time 'http://osm-extracted-metros.s3.amazonaws.com/$(notdir $@)' -o $@.download
+	curl --remote-time 'https://s3.amazonaws.com/metro-extracts.mapzen.com/$(notdir $@)' -o $@.download
 	mv $@.download $@
 
 gz/dropbox/%.zip:
@@ -109,7 +109,7 @@ shp/zoning_pdx.shp: gz/Zoning.zip
 		echo shp/$$(basename $$file); \
 		ogr2ogr -dim 2 -f 'ESRI Shapefile' -t_srs 'EPSG:4326' shp/$$(basename $$file) $$file; \
 	done
-	
+
 	rm -rf $(basename $@)
 
 ################################################################################
@@ -138,13 +138,15 @@ shp/trimet-transit-centers.shp: gz/trimet/tm_tran_cen.zip
 ################################################################################
 #	SHAPEFILES: OPENSTREETMAP
 ################################################################################
-shp/osm.shp: gz/osm/portland.osm2pgsql-shapefiles.zip
+shp/osm.shp: gz/osm/portland_oregon.osm2pgsql-shapefiles.zip
 	rm -rf $(basename $@)
 	mkdir -p $(basename $@)
 	tar --exclude="._*" -xzm -C $(basename $@) -f $<
 
+	chmod 644 $(basename $@)/*
 	mv $(basename $@)/* shp
 	rm -rf $(basename $@)
+	touch $@
 
 ################################################################################
 #	SHAPEFILES: CUSTOM/DROPBOX
