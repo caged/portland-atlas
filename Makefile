@@ -115,6 +115,7 @@ shp/zoning_pdx.shp: gz/Zoning.zip
 ################################################################################
 #	SHAPEFILES: OREGON METRO
 ################################################################################
+shp/master-address.shp: gz/metro/master_address.zip
 shp/buildings.shp: gz/metro/buildings.zip
 shp/blockgroup-1990.shp: gz/metro/blockgrp1990.zip
 shp/blockgroup-2000.shp: gz/metro/blockgrp2000.zip
